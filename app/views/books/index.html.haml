@@ -1,0 +1,9 @@
+%h1 Books
+%table
+  %tr
+    %th ISBN
+    %th Title
+  - @books.each do |book|
+    %tr
+      %td book.ISBN
+      %td book.title
