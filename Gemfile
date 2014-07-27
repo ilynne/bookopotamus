@@ -29,6 +29,15 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'haml-rails', group: :development
 
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem 'rspec-rails'
+  gem "guard-rspec"
+  gem 'database_cleaner'
+  gem "selenium-webdriver", "~> 2.38.0"
+end
+
 # to enable admins to log in as other users
 # gem 'pretender'
 
