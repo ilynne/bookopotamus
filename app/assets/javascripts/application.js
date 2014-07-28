@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require jquery.raty.min.js
 //= require_tree .
+

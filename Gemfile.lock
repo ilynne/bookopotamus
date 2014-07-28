@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/bmc/jquery-raty-rails.git
+  revision: f362f17c0ff3ac039ab05b5e48e5db24a27794b3
+  specs:
+    jquery-raty-rails (0.0.1)
+      rails (>= 3.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,6 +219,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-raty-rails!
   rails (= 4.1.2)
   rspec-rails
   sass-rails (~> 4.0.3)

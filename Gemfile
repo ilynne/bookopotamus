@@ -39,6 +39,7 @@ group :test do
 end
 
 gem 'devise'
+gem 'jquery-raty-rails', github: 'bmc/jquery-raty-rails'
 
 # to enable admins to log in as other users
 # gem 'pretender'

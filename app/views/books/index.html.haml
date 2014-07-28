@@ -3,7 +3,13 @@
   %tr
     %th ISBN
     %th Title
+    %th Rating
+    %th My Rating
   - @books.each do |book|
     %tr
       %td= book.isbn
       %td= book.title
+      %td
+        #star
+      %td
+        #user_star
