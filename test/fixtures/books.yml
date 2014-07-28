@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  ISBN: MyString
+  isbn: MyString
 
 two:
   title: MyString
-  ISBN: MyString
+  isbn: MyString
