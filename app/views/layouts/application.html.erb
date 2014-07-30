@@ -6,25 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-<script>
-  $('#star').raty({
-    readOnly: true,
-    score: 3,
-    path: '/assets'
-  });
 
-  $('#user_star').raty({
-    score: 4,
-    path: '/assets',
-    click: function(score, evt) {
-      $.ajax({
-        url: '/ratings/' + 1,
-        type: 'PATCH',
-        data: { score: score }
-      });
-    }
-  });
-</script>
 
 </head>
 <body>
