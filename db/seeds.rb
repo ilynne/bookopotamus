@@ -8,3 +8,11 @@
 User.delete_all
 user = User.new(email: 'ilynne@gmail.com', password: 'secretsecret', password_confirmation: 'secretsecret')
 user.save
+
+Book.delete_all
+book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author_last: 'Sheffield', author_first: 'Charles', user: user)
+book.save
+
+Rating.delete_all
+rating = Rating.new(score: 5, user: user, book: book)
+rating.save
