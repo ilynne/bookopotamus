@@ -5,11 +5,11 @@ jQuery ->
     path: "/assets"
 
   $("#user_star").raty
-    score: 3
+    score: 5
     path: "/assets"
     click: (score, evt) ->
       $.ajax
-        url: "/ratings/" + 1
+        url: "/ratings/" + 2
         type: "PATCH"
         data:
           score: score
