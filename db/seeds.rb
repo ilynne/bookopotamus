@@ -14,9 +14,15 @@ user.save
 Book.delete_all
 book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author_last: 'Sheffield', author_first: 'Charles', user: User.first)
 book.save
+book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author_last: 'Sheffield', author_first: 'Charles', user: User.first)
+book.save
 
 Rating.delete_all
-rating = Rating.new(score: 5, user: User.first, book: book)
+rating = Rating.new(score: 5, user: User.first, book: Book.first)
 rating.save
-rating = Rating.new(score: 4, user: User.last, book: book)
+rating = Rating.new(score: 5, user: User.first, book: Book.last)
+rating.save
+rating = Rating.new(score: 4, user: User.last, book: Book.first)
+rating.save
+rating = Rating.new(score: 3, user: User.last, book: Book.last)
 rating.save

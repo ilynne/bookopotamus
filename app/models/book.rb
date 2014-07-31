@@ -7,8 +7,9 @@ class Book < ActiveRecord::Base
     ratings.sum(:score).to_f / ratings.size.to_f
   end
 
-  def rating(user = User.first)
-    ratings.where(user: user).score
+  def user_rating(user)
+    rating = ratings.find_by_user_id(user)
+    return rating.present? ? rating : Rating.new
   end
 
 end

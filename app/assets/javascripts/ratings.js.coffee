@@ -1,11 +1,11 @@
 jQuery ->
-  $("#star").raty
+  $(".star").raty
     readOnly: true
     start: ->
       $(this).attr "data-score"
     path: "/assets"
 
-  $("#user_star").raty
+  $(".user_star").raty
     start: ->
       $(this).attr "data-score"
     path: "/assets"
