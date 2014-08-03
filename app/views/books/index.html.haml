@@ -16,7 +16,7 @@
       %td= book.title
       %td= author_last_first(book)
       %td
-        .star{:data => {'score' => book.average_rating}}
+        = render 'shared/book_rating', :book => book
       - if current_user.present?
         %td
-          .user_star{:data => {'score' => book.user_rating(current_user).score, 'rating-id' => book.user_rating(current_user).id}}
+          .user_star{:data => {'score' => book.user_rating(current_user).score, 'rating-id' => book.user_rating(current_user).id, 'action' => 'PATCH', 'book-id' => book.id}}

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :books
 
-  resources :ratings, only: :update
+  resources :ratings, only: [:update, :new]
 
   root 'books#index'
 
