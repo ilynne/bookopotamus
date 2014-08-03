@@ -19,4 +19,4 @@
         = render 'shared/book_rating', :book => book
       - if current_user.present?
         %td
-          .user_star{:data => {'score' => book.user_rating(current_user).score, 'rating-id' => book.user_rating(current_user).id, 'action' => 'PATCH', 'book-id' => book.id}}
+          = render 'shared/book_user_rating', :book => book, :user => current_user
