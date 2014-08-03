@@ -5,6 +5,7 @@ jQuery ->
       $(this).attr "data-score"
     path: "/assets"
 
+jQuery ->
   $(".user_star").raty
     start: ->
       $(this).attr "data-score"
@@ -15,5 +16,4 @@ jQuery ->
         type: "PATCH"
         data:
           score: score
-
       return

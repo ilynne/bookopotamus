@@ -1,5 +1,4 @@
 class Book < ActiveRecord::Base
-
   has_many :ratings
   belongs_to :user
 
@@ -9,7 +8,6 @@ class Book < ActiveRecord::Base
 
   def user_rating(user)
     rating = ratings.find_by_user_id(user)
-    return rating.present? ? rating : Rating.new
+    rating.present? ? rating : Rating.new
   end
-
 end
