@@ -1,4 +1,5 @@
 {<img src="https://codeclimate.com/github/ilynne/bookopotamus/badges/gpa.svg" />}[https://codeclimate.com/github/ilynne/bookopotamus]
+{<img src="https://travis-ci.org/ilynne/bookopotamus.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/ilynne/bookopotamus]
 
 == README
 
