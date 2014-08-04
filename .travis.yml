@@ -1,0 +1,5 @@
+language: ruby
+rvm:
+  - 2.0.0-p353
+before_script:
+  - mysql -e 'create database bookopotamustest;'
