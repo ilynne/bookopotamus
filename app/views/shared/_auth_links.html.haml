@@ -1,0 +1,5 @@
+#authentication
+
+  %p
+    = "You are signed in as: #{current_user.email}" if current_user
+    = devise_links
