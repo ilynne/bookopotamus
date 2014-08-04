@@ -523,27 +523,11 @@
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/helpers/books_helper.rb": [
         1,
         1,
-        0,
+        1,
         null,
         null
       ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/helpers/welcome_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/controllers/books_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
         1,
         null
       ],
@@ -563,6 +547,6 @@
         null
       ]
     },
-    "timestamp": 1407110569
+    "timestamp": 1407111423
   }
 }
