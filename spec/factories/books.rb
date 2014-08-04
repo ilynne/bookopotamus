@@ -2,7 +2,11 @@
 
 FactoryGirl.define do
   factory :book do
-    title     'Book Title from Factory'
-    isbn      '1234567890'
+    sequence(:title) { |n| "Book Title #{n} from Factory" }
+    sequence(:isbn_10) { |n| n + 123_457_890 }
+    sequence(:isbn_13) { |n| "123-#{n + 123_457_890}" }
+    sequence(:author_last) { |n| "Last #{n}" }
+    sequence(:author_first) { |n| "First #{n}" }
+    user
   end
 end

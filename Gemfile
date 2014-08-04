@@ -39,6 +39,8 @@ group :test do
   gem "selenium-webdriver", "~> 2.38.0"
 end
 
+gem 'simplecov', :require => false, :group => :test
+
 gem 'devise'
 
 # to enable admins to log in as other users
