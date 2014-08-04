@@ -43,6 +43,7 @@ end
 gem 'simplecov', :require => false, :group => :test
 
 gem 'devise'
+gem 'figaro'
 
 group :production do
   gem 'pg'
