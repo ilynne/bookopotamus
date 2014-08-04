@@ -37,11 +37,17 @@ group :test do
   gem "guard-rspec"
   gem 'database_cleaner'
   gem "selenium-webdriver", "~> 2.38.0"
+  gem 'mysql2'
 end
 
 gem 'simplecov', :require => false, :group => :test
 
 gem 'devise'
+
+group :production do
+  gem 'pg'
+  # gem 'rails_12factor'
+end
 
 # to enable admins to log in as other users
 # gem 'pretender'
