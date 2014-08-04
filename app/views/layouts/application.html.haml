@@ -38,6 +38,8 @@
       .row-fluid
         .span3
           .well.sidebar-nav
+            %ul.nav
+              = render 'shared/auth_links'
             %ul.nav.nav-list
               %li.nav-header Sidebar
               %li= link_to "Link 1", "/path1"
