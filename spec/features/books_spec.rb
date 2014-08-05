@@ -27,7 +27,15 @@ describe 'Books' do
         fill_in 'Author last', with: book.author_last
         fill_in 'Author first', with: book.author_first
         # click_button 'Save'
-        expect { click_button 'Save' } .to change { Book.count } .by(1)
+        # puts page.body.inspect
+        expect { click_button 'Save' } .to change { Book.count }.by(1)
+      end
+    end
+    describe 'with invalid credentials' do
+      it 'displays the errors' do
+        visit new_book_path
+        click_button 'Save'
+        expect(page).to have_text("errors prohibited")
       end
     end
   end

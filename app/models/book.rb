@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
 
   validates :title, presence: true
   validates :isbn_10, presence: true, length: { is: 10 }
-  validates :isbn_13, presence: true, length: { is: 13 }
+  validates :isbn_13, presence: true, length: { is: 14 }
   validates :author_last, presence: true
   validates :author_first, presence: true
 
