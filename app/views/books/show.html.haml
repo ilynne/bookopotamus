@@ -1,5 +1,21 @@
 %p#notice= notice
 
+%h1= @book.title
+%h4= author_last_first(@book)
+
+%table.table
+  %tr
+    %th ISBN-10
+    %td= @book.isbn_10
+  %tr
+    %th ISBN-13
+    %td= @book.isbn_13
+  %tr
+    %th Average rating
+    %td= render 'shared/book_rating', :book => @book
+  - if current_user.present?
+    %th My Rating
+    %td= render 'shared/book_user_rating', :book => @book, :user => current_user
 
 = link_to 'Edit', edit_book_path(@book)
 \|
