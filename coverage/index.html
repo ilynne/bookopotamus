@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-04T22:00:54-07:00">2014-08-04T22:00:54-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-04T22:41:31-07:00">2014-08-04T22:41:31-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.59%</span></span>
+    (<span class="covered_percent"><span class="green">98.35%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.33
+         1.5
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>32</b> files in total.
-    <b>227</b> relevant lines. 
-    <span class="green"><b>217</b> lines covered</span> and
-    <span class="red"><b>10</b> lines missed </span>
+    <b>243</b> relevant lines. 
+    <span class="green"><b>239</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#831fa8ea500dd9b2d393bbe31c9c581abb5d70bc" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
-        <td class="red strong">69.7 %</td>
+        <td class="yellow strong">87.88 %</td>
         <td>74</td>
         <td>33</td>
-        <td>23</td>
-        <td>10</td>
-        <td>0.9</td>
+        <td>29</td>
+        <td>4</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>5.2</td>
+        <td>6.8</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>3</td>
         <td>3</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>1.2</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
@@ -287,7 +287,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>4.8</td>
+        <td>6.0</td>
       </tr>
       
       <tr>
@@ -307,15 +307,15 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>3.4</td>
+        <td>3.8</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#1959c147f8749cae4d64a2f34106573d0efa5b0a" class="src_link" title="spec/features/books_spec.rb">spec/features/books_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>42</td>
-        <td>19</td>
-        <td>19</td>
+        <td>64</td>
+        <td>35</td>
+        <td>35</td>
         <td>0</td>
         <td>1.2</td>
       </tr>
@@ -437,11 +437,11 @@
         <div class="source_table" id="831fa8ea500dd9b2d393bbe31c9c581abb5d70bc">
   <div class="header">
     <h3>app/controllers/books_controller.rb</h3>
-    <h4><span class="red">69.7 %</span> covered</h4>
+    <h4><span class="yellow">87.88 %</span> covered</h4>
     <div>
       <b>33</b> relevant lines. 
-      <span class="green"><b>23</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -700,26 +700,26 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
-          
+        <li class="covered" data-hits="2" data-linenumber="43">
+          <span class="hits">2</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
+        <li class="covered" data-hits="2" data-linenumber="44">
+          <span class="hits">2</span>
           
           <code class="ruby">      if @book.update(book_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
+        <li class="covered" data-hits="2" data-linenumber="45">
+          <span class="hits">2</span>
           
           <code class="ruby">        format.html { redirect_to @book, notice: &#39;Book was successfully updated.&#39; }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
           
           <code class="ruby">        format.json { render :show, status: :ok, location: @book }</code>
         </li>
@@ -730,14 +730,14 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
-          
+        <li class="covered" data-hits="2" data-linenumber="48">
+          <span class="hits">2</span>
           
           <code class="ruby">        format.html { render :edit }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
-          
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
           <code class="ruby">        format.json { render json: @book.errors, status: :unprocessable_entity }</code>
         </li>
@@ -844,8 +844,8 @@
           <code class="ruby">    def set_book</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="6" data-linenumber="67">
+          <span class="hits">6</span>
           
           <code class="ruby">      @book = Book.find(params[:id])</code>
         </li>
@@ -874,8 +874,8 @@
           <code class="ruby">    def book_params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="72">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="72">
+          <span class="hits">4</span>
           
           <code class="ruby">      params[:book].permit(:title, :isbn_10, :isbn_13, :author_last, :author_first)</code>
         </li>
@@ -922,8 +922,8 @@
           <code class="ruby">  def devise_links</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="3">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="16" data-linenumber="3">
+          <span class="hits">16</span>
           
           <code class="ruby">    if current_user # user_signed_in?</code>
         </li>
@@ -940,8 +940,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="6">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="15" data-linenumber="6">
+          <span class="hits">15</span>
           
           <code class="ruby">      link_to &#39;Log In&#39;, new_user_session_path</code>
         </li>
@@ -994,8 +994,8 @@
           <code class="ruby">  def author_last_first(book)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="3">
+          <span class="hits">3</span>
           
           <code class="ruby">    return &quot;#{book.author_last}, #{book.author_first}&quot;</code>
         </li>
@@ -1126,8 +1126,8 @@
           <code class="ruby">  def average_rating</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
           
           <code class="ruby">    ratings.sum(:score).to_f / ratings.size.to_f</code>
         </li>
@@ -5278,32 +5278,32 @@
           <code class="ruby">  factory :book do</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="5">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="5">
+          <span class="hits">9</span>
           
           <code class="ruby">    sequence(:title) { |n| &quot;Book Title #{n} from Factory&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="6">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="6">
+          <span class="hits">9</span>
           
           <code class="ruby">    sequence(:isbn_10) { |n| n + 1_234_657_890 }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="7">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="7">
+          <span class="hits">9</span>
           
           <code class="ruby">    sequence(:isbn_13) { |n| &quot;123-#{n + 1_234_657_890}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="8">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="8">
+          <span class="hits">9</span>
           
           <code class="ruby">    sequence(:author_last) { |n| &quot;Last #{n}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="9">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="9">
+          <span class="hits">9</span>
           
           <code class="ruby">    sequence(:author_first) { |n| &quot;First #{n}&quot; }</code>
         </li>
@@ -5440,8 +5440,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="5">
-          <span class="hits">13</span>
+        <li class="covered" data-hits="15" data-linenumber="5">
+          <span class="hits">15</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;arthur_dent#{n}@example.org&quot;  } </code>
         </li>
@@ -5479,8 +5479,8 @@
     <h3>spec/features/books_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>19</b> relevant lines. 
-      <span class="green"><b>19</b> lines covered</span> and
+      <b>35</b> relevant lines. 
+      <span class="green"><b>35</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5536,8 +5536,8 @@
           <code class="ruby">  let(:user) { FactoryGirl.build(:user) }</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
           
           <code class="ruby">  let(:book) { FactoryGirl.build(:book) }</code>
         </li>
@@ -5605,136 +5605,268 @@
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;New book&#39; do</code>
+          <code class="ruby">  describe &#39;Editing a book&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &#39;with valid credentials&#39; do</code>
+          <code class="ruby">    describe &#39;with valid parameters&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;creates a new book&#39; do</code>
+          <code class="ruby">      it &#39;should update the title&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="23">
           <span class="hits">1</span>
           
-          <code class="ruby">        visit new_book_path</code>
+          <code class="ruby">        book.save</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">        fill_in &#39;Title&#39;, with: book.title</code>
+          <code class="ruby">        visit edit_book_path book.id</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">        fill_in &#39;Isbn 10&#39;, with: book.isbn_10</code>
+          <code class="ruby">        fill_in &#39;Title&#39;, with: &#39;New Title&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
-          <code class="ruby">        fill_in &#39;Isbn 13&#39;, with: book.isbn_13</code>
+          <code class="ruby">        click_button &#39;Save&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">        fill_in &#39;Author last&#39;, with: book.author_last</code>
+          <code class="ruby">        book.reload</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">        fill_in &#39;Author first&#39;, with: book.author_first</code>
+          <code class="ruby">        expect(book.title).to eq(&#39;New Title&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">        # click_button &#39;Save&#39;</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">        # puts page.body.inspect</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="31">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        expect { click_button &#39;Save&#39; } .to change { Book.count }.by(1)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;with invalid parameters&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;should not update the isbn_10&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        book.save</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &#39;with invalid credentials&#39; do</code>
+          <code class="ruby">        visit edit_book_path book.id</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;displays the errors&#39; do</code>
+          <code class="ruby">        fill_in &#39;Isbn 10&#39;, with: &#39;12345&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">        visit new_book_path</code>
+          <code class="ruby">        click_button &#39;Save&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">        click_button &#39;Save&#39;</code>
+          <code class="ruby">        expect(page).to have_text(&quot;prohibited this book&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        expect(page).to have_text(&quot;errors prohibited&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="38">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;New book&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;with valid parameters&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;creates a new book&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        visit new_book_path</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        fill_in &#39;Title&#39;, with: book.title</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        fill_in &#39;Isbn 10&#39;, with: book.isbn_10</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        fill_in &#39;Isbn 13&#39;, with: book.isbn_13</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        fill_in &#39;Author last&#39;, with: book.author_last</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        fill_in &#39;Author first&#39;, with: book.author_first</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">        # click_button &#39;Save&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">        # puts page.body.inspect</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="53">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        expect { click_button &#39;Save&#39; } .to change { Book.count }.by(1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    describe &#39;with invalid parameters&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      it &#39;displays the errors&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        visit new_book_path</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        click_button &#39;Save&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        expect(page).to have_text(&quot;prohibited this book&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">end</code>

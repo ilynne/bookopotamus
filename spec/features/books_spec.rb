@@ -17,8 +17,30 @@ describe 'Books' do
   #   # @user = FactoryGirl.build(:user)
   # end
 
+  describe 'Editing a book' do
+    describe 'with valid parameters' do
+      it 'should update the title' do
+        book.save
+        visit edit_book_path book.id
+        fill_in 'Title', with: 'New Title'
+        click_button 'Save'
+        book.reload
+        expect(book.title).to eq('New Title')
+      end
+    end
+    describe 'with invalid parameters' do
+      it 'should not update the isbn_10' do
+        book.save
+        visit edit_book_path book.id
+        fill_in 'Isbn 10', with: '12345'
+        click_button 'Save'
+        expect(page).to have_text("prohibited this book")
+      end
+    end
+  end
+
   describe 'New book' do
-    describe 'with valid credentials' do
+    describe 'with valid parameters' do
       it 'creates a new book' do
         visit new_book_path
         fill_in 'Title', with: book.title
@@ -31,11 +53,11 @@ describe 'Books' do
         expect { click_button 'Save' } .to change { Book.count }.by(1)
       end
     end
-    describe 'with invalid credentials' do
+    describe 'with invalid parameters' do
       it 'displays the errors' do
         visit new_book_path
         click_button 'Save'
-        expect(page).to have_text("errors prohibited")
+        expect(page).to have_text("prohibited this book")
       end
     end
   end
