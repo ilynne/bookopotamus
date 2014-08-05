@@ -6,5 +6,23 @@
         - @book.errors.full_messages.each do |msg|
           %li= msg
 
+  %fieldset
+    %legend Book
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :isbn_10
+      = f.text_field :isbn_10
+    .field
+      = f.label :isbn_13
+      = f.text_field :isbn_13
+    .field
+      = f.label :author_last
+      = f.text_field :author_last
+    .field
+      = f.label :author_first
+      = f.text_field :author_first
+
   .actions
     = f.submit 'Save'
