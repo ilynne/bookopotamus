@@ -9,11 +9,11 @@ describe 'Books' do
   let(:book) { FactoryGirl.build(:book) }
 
   # before(:each) do
-  #   # DatabaseCleaner.clean_with(:truncation)
-  # #   visit new_user_session_path
-  # #   fill_in "Email", with: user.email
-  # #   fill_in "Password", with: user.password
-  # #   click_button "Sign in"
+  #   DatabaseCleaner.clean_with(:truncation)
+  #   visit new_user_session_path
+  #   fill_in "Email", with: user.email
+  #   fill_in "Password", with: user.password
+  #   click_button "Sign in"
   #   # @user = FactoryGirl.build(:user)
   # end
 

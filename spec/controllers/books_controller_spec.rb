@@ -16,4 +16,17 @@ describe BooksController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'destroys the requested book' do
+      book.save
+      expect{delete :destroy, id: book.to_param}.to change{Book.count}.by(-1)
+    end
+
+    it 'redirects to the books list' do
+      book.save
+      delete :destroy, id: book.to_param
+      response.should redirect_to(books_url)
+    end
+  end
+
 end

@@ -14,18 +14,18 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-04T22:41:31-07:00">2014-08-04T22:41:31-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-04T23:27:07-07:00">2014-08-04T23:27:07-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.35%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.5
+         1.59
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>32</b> files in total.
     <b>243</b> relevant lines. 
-    <span class="green"><b>239</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <span class="green"><b>243</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#831fa8ea500dd9b2d393bbe31c9c581abb5d70bc" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
-        <td class="yellow strong">87.88 %</td>
+        <td class="green strong">100.0 %</td>
         <td>74</td>
         <td>33</td>
-        <td>29</td>
-        <td>4</td>
-        <td>1.5</td>
+        <td>33</td>
+        <td>0</td>
+        <td>1.8</td>
       </tr>
       
       <tr>
@@ -287,7 +287,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>6.0</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -307,7 +307,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>3.8</td>
+        <td>4.2</td>
       </tr>
       
       <tr>
@@ -437,11 +437,11 @@
         <div class="source_table" id="831fa8ea500dd9b2d393bbe31c9c581abb5d70bc">
   <div class="header">
     <h3>app/controllers/books_controller.rb</h3>
-    <h4><span class="yellow">87.88 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>33</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <span class="green"><b>33</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -784,26 +784,26 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
-          
+        <li class="covered" data-hits="2" data-linenumber="57">
+          <span class="hits">2</span>
           
           <code class="ruby">    @book.destroy</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
+        <li class="covered" data-hits="2" data-linenumber="58">
+          <span class="hits">2</span>
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
+        <li class="covered" data-hits="4" data-linenumber="59">
+          <span class="hits">4</span>
           
           <code class="ruby">      format.html { redirect_to books_url, notice: &#39;Book was successfully destroyed.&#39; }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
-          
+        <li class="covered" data-hits="2" data-linenumber="60">
+          <span class="hits">2</span>
           
           <code class="ruby">      format.json { head :no_content }</code>
         </li>
@@ -844,8 +844,8 @@
           <code class="ruby">    def set_book</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="67">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="8" data-linenumber="67">
+          <span class="hits">8</span>
           
           <code class="ruby">      @book = Book.find(params[:id])</code>
         </li>
@@ -5278,32 +5278,32 @@
           <code class="ruby">  factory :book do</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="5">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="5">
+          <span class="hits">11</span>
           
           <code class="ruby">    sequence(:title) { |n| &quot;Book Title #{n} from Factory&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="6">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="6">
+          <span class="hits">11</span>
           
           <code class="ruby">    sequence(:isbn_10) { |n| n + 1_234_657_890 }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="7">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="7">
+          <span class="hits">11</span>
           
           <code class="ruby">    sequence(:isbn_13) { |n| &quot;123-#{n + 1_234_657_890}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="8">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="8">
+          <span class="hits">11</span>
           
           <code class="ruby">    sequence(:author_last) { |n| &quot;Last #{n}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="9">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="9">
+          <span class="hits">11</span>
           
           <code class="ruby">    sequence(:author_first) { |n| &quot;First #{n}&quot; }</code>
         </li>
@@ -5440,8 +5440,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="5">
-          <span class="hits">15</span>
+        <li class="covered" data-hits="17" data-linenumber="5">
+          <span class="hits">17</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;arthur_dent#{n}@example.org&quot;  } </code>
         </li>
@@ -5557,31 +5557,31 @@
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  #   # DatabaseCleaner.clean_with(:truncation)</code>
+          <code class="ruby">  #   DatabaseCleaner.clean_with(:truncation)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">  # #   visit new_user_session_path</code>
+          <code class="ruby">  #   visit new_user_session_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">  # #   fill_in &quot;Email&quot;, with: user.email</code>
+          <code class="ruby">  #   fill_in &quot;Email&quot;, with: user.email</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">  # #   fill_in &quot;Password&quot;, with: user.password</code>
+          <code class="ruby">  #   fill_in &quot;Password&quot;, with: user.password</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">  # #   click_button &quot;Sign in&quot;</code>
+          <code class="ruby">  #   click_button &quot;Sign in&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
