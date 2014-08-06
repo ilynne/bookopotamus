@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books
 
   resources :ratings, only: [:update, :new]
+  resources :reviews
 
   root 'books#index'
 

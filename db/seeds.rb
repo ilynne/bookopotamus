@@ -26,3 +26,13 @@ rating = Rating.new(score: 4, user: User.last, book: Book.first)
 rating.save
 rating = Rating.new(score: 3, user: User.last, book: Book.last)
 rating.save
+
+Review.delete_all
+review = Review.new(body: 'This book is great.', user: User.first, book: Book.first)
+review.save
+review = Review.new(body: 'This book is also great.', user: User.first, book: Book.last)
+review.save
+review = Review.new(body: 'This book is terrible.', user: User.last, book: Book.first)
+review.save
+review = Review.new(body: 'This book is also terrible.', user: User.last, book: Book.last)
+review.save
