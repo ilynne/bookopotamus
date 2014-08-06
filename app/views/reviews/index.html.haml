@@ -1,17 +1,17 @@
 %h1 Reviews
 %table
   %tr
+    %th Rating
     %th Title
     %th Review
-    %th Rating
     - if current_user.present?
       %th My Rating
   - @reviews.each do |review|
     %tr
-      %td= review.book.title
-      %td= review.body
       %td
         = render 'shared/book_rating', :book => review.book
+      %td= review.book.title
+      %td= review.body
       - if current_user.present?
         %td
           = render 'shared/book_user_rating', :book => review.book, :user => current_user
