@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'ratings/index'
+
   devise_for :users
   resources :books
 

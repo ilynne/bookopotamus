@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
   has_many :ratings
+  has_many :reviews
   belongs_to :user
 
   validates :title, presence: true
