@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+  $(".star").raty
+    readOnly: true
+    start: ->
+      $(this).attr "data-score"
+    path: "/assets"
+
+jQuery ->
+  $(".user_star").raty
+    start: ->
+      $(this).attr "data-score"
+    path: "/assets"
+    click: (score, evt) ->
+      $.ajax
+        url: "/ratings/" + $(this).attr "data-rating-id"
+        type: "PATCH"
+        data:
+          score: score
+      return
