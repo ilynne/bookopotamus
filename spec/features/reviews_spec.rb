@@ -5,9 +5,10 @@ require 'spec_helper'
 describe 'Reviews' do
 
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
-  let(:user) { FactoryGirl.build(:user) }
-  let(:book) { FactoryGirl.build(:book) }
-  let(:review) { FactoryGirl.build(:review) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:book) { FactoryGirl.create(:book) }
+  let(:review) { FactoryGirl.create(:review) }
+  let(:rating) { FactoryGirl.create(:rating) }
 
   # before(:each) do
   #   DatabaseCleaner.clean_with(:truncation)
@@ -20,6 +21,8 @@ describe 'Reviews' do
 
   describe 'Viewing reviews' do
     it 'should list all the reviews' do
+      review.save
+      rating.save
       visit reviews_path
       expect(page.body).to include(review.body)
     end
