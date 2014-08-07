@@ -60,5 +60,11 @@ describe 'Books' do
         expect(page).to have_text("prohibited this book")
       end
     end
+    describe 'with a nested review' do
+      it 'has a review text area' do
+        visit new_book_path
+        expect(page).to have_field('book_review_body')
+      end
+    end
   end
 end

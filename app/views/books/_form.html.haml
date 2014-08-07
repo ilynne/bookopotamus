@@ -23,6 +23,10 @@
     .field
       = f.label :author_first
       = f.text_field :author_first
+  %fieldset
+    %legend Review
+    = f.fields_for :review do |review_form|
+      = render 'reviews/review_fields', :f => review_form
 
   .actions
     = f.submit 'Save'
