@@ -58,6 +58,7 @@ class BooksController < ApplicationController
                          :isbn_10,
                          :isbn_13,
                          :author_last,
-                         :author_first)
+                         :author_first,
+                         review_attributes: [:body, :user_id])
   end
 end
