@@ -7,6 +7,7 @@ describe 'Books' do
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
   let(:user) { FactoryGirl.build(:user) }
   let(:book) { FactoryGirl.build(:book) }
+  let(:book) { FactoryGirl.build(:review) }
 
   # before(:each) do
   #   DatabaseCleaner.clean_with(:truncation)
@@ -64,6 +65,18 @@ describe 'Books' do
       it 'has a review text area' do
         visit new_book_path
         expect(page).to have_field('book_review_body')
+      end
+      it 'saves a review with the book' do
+        visit new_book_path
+        fill_in 'Title', with: book.title
+        fill_in 'Isbn 10', with: book.isbn_10
+        fill_in 'Isbn 13', with: book.isbn_13
+        fill_in 'Author last', with: book.author_last
+        fill_in 'Author first', with: book.author_first
+        fill_in 'book_review_body', with: review_body
+        puts Book.last.inspect
+        puts Book.last.reviews.last.inspect
+        click_button 'Save'
       end
     end
   end
