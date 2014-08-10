@@ -2,4 +2,5 @@
 
   %p
     = "You are signed in as: #{current_user.email}" if current_user
+    = '[Admin]' if current_user.try(:admin)
     = devise_links

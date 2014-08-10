@@ -5,27 +5,20 @@ require 'spec_helper'
 describe 'Users' do
 
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
-  let(:user) { FactoryGirl.build(:user) }
-
-  # before(:each) do
-  #   # DatabaseCleaner.clean_with(:truncation)
-  # #   visit new_user_session_path
-  # #   fill_in "Email", :with => user.email
-  # #   fill_in "Password", :with => user.password
-  # #   click_button "Sign in"
-  #   # @user = FactoryGirl.build(:user)
-  # end
+  let(:new_user) { FactoryGirl.build(:user) }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:admin) { FactoryGirl.create(:admin) }
 
   describe 'New signup' do
     describe 'with valid credentials' do
       it 'allows a user to register' do
         visit new_user_registration_path
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: user.password
-        fill_in 'Password confirmation', with: user.password
+        fill_in 'Email', with: new_user.email
+        fill_in 'Password', with: new_user.password
+        fill_in 'Password confirmation', with: new_user.password
         click_button 'Sign up'
         expect(page.body).to include('You are signed in as')
-        expect(page.body).to include(user.email)
+        expect(page.body).to include(new_user.email)
       end
     end
 
@@ -64,5 +57,14 @@ describe 'Users' do
       end
     end
 
+    describe 'Admin' do
+      it 'indicates that the user is an admin' do
+        visit new_user_session_path
+        fill_in 'Email', with: admin.email
+        fill_in 'Password', with: admin.password
+        click_button 'Sign in'
+        expect(page.body).to include('[Admin]')
+      end
+    end
   end
 end

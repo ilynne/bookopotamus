@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe BooksController do
   DatabaseCleaner.clean_with(:truncation)
+  login_admin
   login_user
   let(:user) { FactoryGirl.create(:user) }
   let(:book) { FactoryGirl.create(:book) }

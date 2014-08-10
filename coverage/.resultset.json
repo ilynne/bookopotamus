@@ -454,9 +454,12 @@
         null,
         1,
         1,
-        38,
+        42,
         1,
         1,
+        1,
+        1,
+        null,
         null,
         null
       ],
@@ -544,10 +547,10 @@
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/helpers/application_helper.rb": [
         1,
         1,
-        42,
-        25,
+        44,
+        26,
         null,
-        17,
+        18,
         null,
         null,
         null
@@ -573,10 +576,11 @@
       ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/spec/support/controller_macros.rb": [
         1,
-        null,
-        null,
-        null,
-        null,
+        1,
+        1,
+        3,
+        3,
+        3,
         null,
         null,
         null,
@@ -604,7 +608,7 @@
         null,
         null,
         1,
-        15,
+        16,
         null,
         null,
         null,
@@ -982,16 +986,9 @@
         1,
         null,
         null,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        2,
+        2,
+        2,
         null,
         1,
         1,
@@ -1039,6 +1036,15 @@
         1,
         1,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -1156,17 +1162,17 @@
         null,
         null
       ],
+      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/rating.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/review.rb": [
         1,
         1,
         1,
         null,
-        1,
-        null
-      ],
-      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/rating.rb": [
-        1,
-        1,
         1,
         null
       ],
@@ -1186,6 +1192,6 @@
         null
       ]
     },
-    "timestamp": 1407703454
+    "timestamp": 1407712922
   }
 }
