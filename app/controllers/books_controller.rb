@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_filter only: [:new, :create, :edit, :update, :destroy] do
-    redirect_to :root unless current_user
+    redirect_to :new_user_session unless current_user
   end
 
   # GET /books
@@ -62,6 +62,6 @@ class BooksController < ApplicationController
                          :isbn_13,
                          :author_last,
                          :author_first,
-                         review_attributes: [:body, :user_id])
+                         review_attributes: [:body])
   end
 end

@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe BooksController do
   DatabaseCleaner.clean_with(:truncation)
+  login_user
+  let(:user) { FactoryGirl.create(:user) }
   let(:book) { FactoryGirl.create(:book) }
-
-  before(:all) do
-  end
+  # let(:authed_user) { create_logged_in_user }
 
   describe 'GET#index' do
     # render_views
