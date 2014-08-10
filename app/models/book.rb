@@ -12,6 +12,8 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
 
+  default_scope { where(approved: true) }
+
   def average_rating
     ratings.sum(:score).to_f / ratings.size.to_f
   end
