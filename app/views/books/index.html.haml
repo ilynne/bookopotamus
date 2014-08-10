@@ -1,26 +1,30 @@
 %h1 Books
-%table
-  %tr
-    %th ISBN-10
-    %th ISBN-13
-    %th Title
-    %th Author
-    %th Rating
-    - if current_user.present?
-      %th My Rating
-    %th
-    %th
-  - @books.each do |book|
+- if @books.count > 0
+  %table
     %tr
-      %td= book.isbn_10
-      %td= book.isbn_13
-      %td= book.title
-      %td= author_last_first(book)
-      %td
-        = render 'shared/book_rating', :book => book
+      %th ISBN-10
+      %th ISBN-13
+      %th Title
+      %th Author
+      %th Rating
       - if current_user.present?
+        %th My Rating
+      %th
+      %th
+    - @books.each do |book|
+      %tr
+        %td= book.isbn_10
+        %td= book.isbn_13
+        %td= book.title
+        %td= author_last_first(book)
         %td
-          = render 'shared/book_user_rating', :book => book, :user => current_user
-      %td= link_to 'Edit', edit_book_path(book)
-      %td= link_to 'Destroy', book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+          = render 'shared/book_rating', :book => book
+        - if current_user.present?
+          %td
+            = render 'shared/book_user_rating', :book => book, :user => current_user
+        %td= link_to 'Edit', edit_book_path(book)
+        %td= link_to 'Destroy', book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+- else
+  %p No books! 
+  = link_to 'Add a book', new_book_path
 
