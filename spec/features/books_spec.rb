@@ -8,7 +8,7 @@ describe 'Books' do
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
   let(:user) { FactoryGirl.create(:user) }
   let(:book) { FactoryGirl.create(:book) }
-  let(:review) { FactoryGirl.create(:review) }
+  let(:review) { FactoryGirl.create(:review, book: book) }
 
   describe 'as a signed in user' do
     before(:each) do
@@ -81,7 +81,7 @@ describe 'Books' do
       describe 'with a nested review' do
         it 'has a review text area' do
           visit new_book_path
-          expect(page).to have_field('book_review_body')
+          expect(page).to have_field('book_reviews_attributes_0_body')
         end
         it 'saves a review with the book' do
           visit new_book_path
@@ -90,10 +90,9 @@ describe 'Books' do
           fill_in 'Isbn 13', with: book.isbn_13
           fill_in 'Author last', with: book.author_last
           fill_in 'Author first', with: book.author_first
-          fill_in 'book_review_body', with: review_body
-          puts Book.last.inspect
-          puts Book.last.reviews.last.inspect
+          fill_in 'book_reviews_attributes_0_body', with: review.body
           click_button 'Save'
+          expect(book.reviews.last.body).to eq(review.body)
         end
       end
     end

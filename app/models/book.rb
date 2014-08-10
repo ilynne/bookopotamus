@@ -9,7 +9,7 @@ class Book < ActiveRecord::Base
   validates :author_last, presence: true
   validates :author_first, presence: true
 
-  accepts_nested_attributes_for :reviews
+  accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
 
   def average_rating
     ratings.sum(:score).to_f / ratings.size.to_f

@@ -25,7 +25,7 @@
       = f.text_field :author_first
   %fieldset
     %legend Review
-    = f.fields_for :review do |review_form|
+    = f.fields_for :reviews do |review_form|
       = render 'reviews/review_fields', :f => review_form
 
   .actions

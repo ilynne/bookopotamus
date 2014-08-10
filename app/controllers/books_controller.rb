@@ -16,6 +16,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.reviews.build(user: current_user)
   end
 
   # GET /books/1/edit
@@ -25,7 +26,7 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-
+    @book.user = current_user
     if @book.save
       redirect_to @book, notice: 'Book was successfully created.'
     else
@@ -62,6 +63,6 @@ class BooksController < ApplicationController
                          :isbn_13,
                          :author_last,
                          :author_first,
-                         review_attributes: [:body])
+                         reviews_attributes: [:body, :user_id])
   end
 end
