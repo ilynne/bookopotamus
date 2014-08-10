@@ -27,6 +27,9 @@
     %legend Review
     = f.fields_for :reviews do |review_form|
       = render 'reviews/review_fields', :f => review_form
-
+  %fieldset
+    %legend Rating
+    .new_star
+    
   .actions
     = f.submit 'Save'
