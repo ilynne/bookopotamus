@@ -6,7 +6,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.all
+    current_user.try(:admin?) ? @books = Book.unscoped : @books = Book.all
   end
 
   # GET /books/1

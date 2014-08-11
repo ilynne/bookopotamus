@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-10T16:27:22-07:00">2014-08-10T16:27:22-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-10T18:48:33-07:00">2014-08-10T18:48:33-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.19
+         2.4
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>39</b> files in total.
-    <b>330</b> relevant lines. 
-    <span class="green"><b>330</b> lines covered</span> and
+    <b>331</b> relevant lines. 
+    <span class="green"><b>331</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -67,7 +67,7 @@
         <td>32</td>
         <td>32</td>
         <td>0</td>
-        <td>3.0</td>
+        <td>3.1</td>
       </tr>
       
       <tr>
@@ -133,11 +133,11 @@
       <tr>
         <td class="strong"><a href="#fea65861755fd786797e1229eb4980c5d3f1f40b" class="src_link" title="app/models/book.rb">app/models/book.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>23</td>
-        <td>16</td>
-        <td>16</td>
+        <td>25</td>
+        <td>17</td>
+        <td>17</td>
         <td>0</td>
-        <td>3.3</td>
+        <td>6.4</td>
       </tr>
       
       <tr>
@@ -327,7 +327,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>11.0</td>
+        <td>11.6</td>
       </tr>
       
       <tr>
@@ -357,7 +357,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>6.9</td>
+        <td>7.3</td>
       </tr>
       
       <tr>
@@ -427,7 +427,7 @@
         <td>11</td>
         <td>11</td>
         <td>0</td>
-        <td>2.1</td>
+        <td>2.7</td>
       </tr>
       
       <tr>
@@ -566,10 +566,10 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="9">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="17" data-linenumber="9">
+          <span class="hits">17</span>
           
-          <code class="ruby">    @books = Book.all</code>
+          <code class="ruby">    current_user.try(:admin?) ? @books = Book.unscoped : @books = Book.all</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -1271,8 +1271,8 @@
     <h3>app/models/book.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>17</b> relevant lines. 
+      <span class="green"><b>17</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1364,55 +1364,67 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="57" data-linenumber="15">
+          <span class="hits">57</span>
           
-          <code class="ruby">  def average_rating</code>
+          <code class="ruby">  default_scope { where(approved: true) }</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="16">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    ratings.sum(:score).to_f / ratings.size.to_f</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">  def user_rating(user)</code>
+          <code class="ruby">  def average_rating</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="20">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="8" data-linenumber="18">
+          <span class="hits">8</span>
           
-          <code class="ruby">    rating = ratings.find_by_user_id(user)</code>
+          <code class="ruby">    ratings.sum(:score).to_f / ratings.size.to_f</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="21">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    rating.present? ? rating : Rating.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def user_rating(user)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="22">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    rating = ratings.find_by_user_id(user)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="23">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    rating.present? ? rating : Rating.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
@@ -5582,32 +5594,32 @@
           <code class="ruby">  factory :book do</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="5">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="5">
+          <span class="hits">18</span>
           
           <code class="ruby">    sequence(:title) { |n| &quot;Book Title #{n} from Factory&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="6">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="6">
+          <span class="hits">18</span>
           
           <code class="ruby">    sequence(:isbn_10) { |n| n + 1_234_657_890 }</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="7">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="7">
+          <span class="hits">18</span>
           
           <code class="ruby">    sequence(:isbn_13) { |n| &quot;123-#{n + 1_234_657_890}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="8">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="8">
+          <span class="hits">18</span>
           
           <code class="ruby">    sequence(:author_last) { |n| &quot;Last #{n}&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="9">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="18" data-linenumber="9">
+          <span class="hits">18</span>
           
           <code class="ruby">    sequence(:author_first) { |n| &quot;First #{n}&quot; }</code>
         </li>
@@ -5816,8 +5828,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="42" data-linenumber="5">
-          <span class="hits">42</span>
+        <li class="covered" data-hits="45" data-linenumber="5">
+          <span class="hits">45</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;arthur_dent#{n}@example.org&quot;  } </code>
         </li>
@@ -7694,26 +7706,26 @@
           <code class="ruby">  def login_admin</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="3">
+          <span class="hits">2</span>
           
           <code class="ruby">    before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="4">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="7" data-linenumber="4">
+          <span class="hits">7</span>
           
           <code class="ruby">      @request.env[&quot;devise.mapping&quot;] = Devise.mappings[:admin]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="5">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="7" data-linenumber="5">
+          <span class="hits">7</span>
           
           <code class="ruby">      admin = FactoryGirl.create(:admin)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="7" data-linenumber="6">
+          <span class="hits">7</span>
           
           <code class="ruby">      sign_in admin</code>
         </li>
@@ -7748,14 +7760,14 @@
           <code class="ruby">    before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="12">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
           <code class="ruby">      controller.request.env[&quot;devise.mapping&quot;] = Devise.mappings[:user]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="13">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
           <code class="ruby">      user = FactoryGirl.create(:user)</code>
         </li>
@@ -7766,8 +7778,8 @@
           <code class="ruby">      # user.confirm! # or set a confirmed_at inside the factory. Only necessary if you are using the &quot;confirmable&quot; module</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="15">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
           <code class="ruby">      sign_in user</code>
         </li>
