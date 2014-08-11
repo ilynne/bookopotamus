@@ -18,7 +18,7 @@
     - @books.each do |book|
       %tr
         - if current_user.try(:admin?)
-          %td= book.approved?
+          %td= check_box_tag :approved, 1, book.approved?
         %td= book.isbn_10
         %td= book.isbn_13
         %td= book.title
