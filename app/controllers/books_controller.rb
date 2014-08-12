@@ -40,8 +40,6 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1
   def update
-    puts @book.inspect
-    puts book_params
     if @book.update(book_params)
       redirect_to @book, notice: 'Book was successfully updated.'
     else
