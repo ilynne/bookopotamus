@@ -6,7 +6,11 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    current_user.try(:admin?) ? @books = Book.all : @books = Book.approved
+    if current_user
+      current_user.admin? ? @books = Book.all : @books = Book.where("user_id = ? OR approved = ?", current_user.id, 1)
+    else
+      @books = Book.approved
+    end
   end
 
   # GET /books/1
