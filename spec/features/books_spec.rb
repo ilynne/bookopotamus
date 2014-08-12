@@ -7,15 +7,22 @@ describe 'Books' do
 
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:book) { FactoryGirl.create(:book) }
+  let(:book) { FactoryGirl.create(:book, user: user) }
   let(:review) { FactoryGirl.create(:review, book: book) }
+
+  describe 'as an anonymous user' do
+    it 'should not list any books' do
+      visit books_path
+      expect(page.body).to have_text('No books!')
+    end
+  end
 
   describe 'as a signed in user' do
     before(:each) do
       visit new_user_session_path
-      fill_in "Email", with: user.email
-      fill_in "Password", with: user.password
-      click_button "Sign in"
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Sign in'
     end
 
     describe 'viewing books' do

@@ -37,7 +37,7 @@ describe BooksController do
       # render_views
       it "assigns all books as @books" do
         get :index, {}
-        assigns(:books).should eq([book])
+        assigns(:books).should_not eq([book])
       end
     end
   end
