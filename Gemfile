@@ -49,6 +49,8 @@ gem 'simplecov', :require => false, :group => :test
 gem 'devise'
 gem 'figaro'
 
+gem 'carrierwave'
+
 group :production do
   gem 'pg'
   # gem 'rails_12factor'
