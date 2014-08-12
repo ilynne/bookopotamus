@@ -6,6 +6,7 @@ $ ->
     $.ajax
       type: $(this).data('method')
       url: $(this).data('url') + '/' + $(this).data('book-id')
+      dataType: 'json'
       data:
         book:
           approved: $(this).is(':checked')
