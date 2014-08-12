@@ -7,5 +7,6 @@ $ ->
       type: $(this).data('method')
       url: $(this).data('url') + '/' + $(this).data('book-id')
       data:
-        approved: $(this).is(':checked')
+        book:
+          approved: $(this).is(':checked')
 
