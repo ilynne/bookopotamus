@@ -15,6 +15,12 @@ describe Book do
     end
   end
 
+  describe 'approvable' do
+    it 'should be false if the book has no cover image' do
+      expect(book.approvable?).to eq(false)
+    end
+  end
+
   describe 'average rating' do
     it 'should return the average of ratings' do
       rated_book = book
