@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
   belongs_to :user
+  mount_uploader :cover, CoverUploader
 
   validates :title, presence: true
   validates :isbn_10, presence: true, length: { is: 10 }

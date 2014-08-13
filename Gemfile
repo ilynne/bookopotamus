@@ -49,6 +49,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'devise'
 gem 'figaro'
 
+gem 'rmagick'
 gem 'carrierwave'
 
 group :production do
