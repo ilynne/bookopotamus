@@ -73,6 +73,7 @@ describe 'Books' do
           fill_in 'Isbn 13', with: book.isbn_13
           fill_in 'Author last', with: book.author_last
           fill_in 'Author first', with: book.author_first
+          attach_file 'Cover', 'spec/fixtures/files/missing.png'
           # click_button 'Save'
           # puts page.body.inspect
           expect { click_button 'Save' } .to change { Book.count }.by(1)
