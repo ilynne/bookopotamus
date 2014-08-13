@@ -3,7 +3,7 @@
 %h1= @book.title
 %h4= author_last_first(@book)
 
-= image_tag @book.cover_url.to_s
+= image_tag @book.cover_url(:medium).to_s
 
 %table.table
   %tr
