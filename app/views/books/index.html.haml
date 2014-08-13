@@ -17,7 +17,7 @@
       %th
     - @books.each do |book|
       %tr
-        - if current_user.try(:admin?)
+        - if current_user.try(:admin?) && book.approvable?
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, class: 'approved', data: { book_id: book.id, url: books_path, method: 'PATCH' }
         %td= book.isbn_10
         %td= book.isbn_13

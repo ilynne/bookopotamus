@@ -25,4 +25,8 @@ class Book < ActiveRecord::Base
     rating = ratings.find_by_user_id(user)
     rating.present? ? rating : Rating.new
   end
+
+  def approvable?
+    cover.present?
+  end
 end
