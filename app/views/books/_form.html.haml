@@ -32,7 +32,7 @@
       = render 'reviews/review_fields', :f => review_form
   %fieldset
     %legend Rating
-    .new_star
+    = render 'shared/book_user_rating', :book => @book
     
   .actions
     = f.submit 'Save'
