@@ -5,13 +5,13 @@ describe Book do
   let(:rating) { FactoryGirl.create(:rating) }
 
   describe 'user_rating' do
-    it 'should return new if there is no rating' do
-      expect(book.user_rating(book.user).id).to be_nil
+    it 'should return 0 if there is no rating' do
+      expect(book.user_rating(book.user)).to eq(0)
     end
     it 'should return a score between 1-5' do
       rated_book = rating.book
       rated_by = rating.user
-      rated_book.user_rating(rated_by).score.should be_between(1, 5)
+      rated_book.user_rating(rated_by).should be_between(1, 5)
     end
   end
 
