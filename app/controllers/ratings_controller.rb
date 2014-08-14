@@ -8,9 +8,14 @@ class RatingsController < ApplicationController
 
   # GET /books/id/ratings/new
   def new
-    @book = Book.find(params[:id])
-    @rating = @book.ratings.find_or_create(user: current_user, score: params[:score], book: @book)
-    @rating.save
+    @book = Book.find(params[:book_id])
+    @rating = Rating.find_or_create_by(user: current_user, book: @book)
+    @rating.score = params[:score]
+    respond_to do |format|
+      if @rating.save
+        format.json { head :no_content }
+      end
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
