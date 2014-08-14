@@ -23,7 +23,7 @@ class Book < ActiveRecord::Base
 
   def user_rating(user)
     rating = ratings.find_by_user_id(user)
-    rating.present? ? rating : Rating.new
+    rating.present? ? rating.score : 0
   end
 
   def approvable?

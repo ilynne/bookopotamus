@@ -16,8 +16,8 @@ jQuery ->
     path: "/assets"
     click: (score, evt) ->
       $.ajax
-        url: "/ratings/" + $(this).attr "data-rating-id"
-        type: "PATCH"
+        url: "/books/" + $(this).attr "data-book-id" + "/ratings/new"
+        type: "GET"
         data:
           score: score
       return

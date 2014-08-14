@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     # @book = Book.new(title: 'title', isbn_10: '1234567890', isbn_13: '123-1234567890', author_last: 'last', author_first: 'first')
     @book = Book.new
     @book.reviews.build(user: current_user, body: 'good')
-    @book.ratings.build(user: current_user)
+    @book.ratings.build(user: current_user, score: 0)
   end
 
   # GET /books/1/edit

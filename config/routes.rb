@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get 'ratings/index'
 
   devise_for :users
-  resources :books
-
-  resources :ratings, only: [:update, :new]
+  resources :books do
+    resources :ratings, only: [:update, :new]
+  end
   resources :reviews
 
   root 'books#index'
