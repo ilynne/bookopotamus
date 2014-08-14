@@ -13,7 +13,7 @@ class RatingsController < ApplicationController
     @rating.score = params[:score]
     respond_to do |format|
       if @rating.save
-        format.json { head :no_content }
+        format.json { render json: @book.average_rating, status: :created }
       end
     end
   end

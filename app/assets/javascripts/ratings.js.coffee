@@ -20,5 +20,11 @@ jQuery ->
         type: "GET"
         data:
           score: score
-      return
+        success: (data, status, xhr) ->
+          return
+
+        error: (xhr, status, error) ->
+          alert error
+          return
+
 
