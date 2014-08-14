@@ -1,1 +1,1 @@
-.user_star{:data => {'score' => book.user_rating(user).score, 'book-id' => book.id}}
+.user_star{:data => {'score' => book.user_rating(user), 'url' => "/books/#{book.id}/ratings/new"}}
