@@ -7,6 +7,7 @@ describe 'Books' do
 
   # let(:admin) { FactoryGirl.create(:user, admin: true) }
   let(:user) { FactoryGirl.create(:user) }
+  let(:author) { FactoryGirl.create(:author) }
   let(:book) { FactoryGirl.create(:book, user: user) }
   let(:review) { FactoryGirl.create(:review, book: book) }
 
@@ -71,11 +72,9 @@ describe 'Books' do
           fill_in 'Title', with: book.title
           fill_in 'Isbn 10', with: book.isbn_10
           fill_in 'Isbn 13', with: book.isbn_13
-          fill_in 'Author last', with: book.author_last
-          fill_in 'Author first', with: book.author_first
+          fill_in 'book_author_attributes_last_name', with: author.last_name
+          fill_in 'book_author_attributes_first_name', with: author.first_name
           attach_file 'Cover', 'spec/fixtures/files/missing.png'
-          # click_button 'Save'
-          # puts page.body.inspect
           expect { click_button 'Save' } .to change { Book.count }.by(1)
         end
       end
@@ -96,8 +95,8 @@ describe 'Books' do
           fill_in 'Title', with: book.title
           fill_in 'Isbn 10', with: book.isbn_10
           fill_in 'Isbn 13', with: book.isbn_13
-          fill_in 'Author last', with: book.author_last
-          fill_in 'Author first', with: book.author_first
+          fill_in 'book_author_attributes_last_name', with: author.last_name
+          fill_in 'book_author_attributes_first_name', with: author.first_name
           fill_in 'book_reviews_attributes_0_body', with: review.body
           click_button 'Save'
           expect(book.reviews.last.body).to eq(review.body)

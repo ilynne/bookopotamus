@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe BooksHelper do
-  include BooksHelper
+describe AuthorsHelper do
+  include AuthorsHelper
   let(:book) { FactoryGirl.create(:book) }
 
   describe 'author_last_first' do
     it 'returns the book author last, first' do
-      expect(author_last_first(book)).to eq("#{book.author_last}, #{book.author_first}")
+      expect(author_last_first(book.author)).to eq("#{book.author.last_name}, #{book.author.first_name}")
     end
   end
 

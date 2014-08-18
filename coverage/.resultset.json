@@ -413,6 +413,16 @@
         null,
         null
       ],
+      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/spec/factories/authors.rb": [
+        null,
+        null,
+        1,
+        1,
+        21,
+        21,
+        null,
+        null
+      ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/spec/factories/books.rb": [
         null,
         null,
@@ -421,8 +431,7 @@
         19,
         19,
         19,
-        19,
-        19,
+        1,
         1,
         null,
         null
@@ -555,7 +564,7 @@
         null,
         null
       ],
-      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/helpers/books_helper.rb": [
+      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/helpers/authors_helper.rb": [
         1,
         1,
         7,
@@ -622,6 +631,7 @@
         null,
         1,
         null,
+        4,
         4,
         4,
         4,
@@ -863,6 +873,7 @@
         null,
         null,
         10,
+        3,
         8,
         2,
         null,
@@ -930,8 +941,6 @@
         1,
         1,
         1,
-        null,
-        null,
         4,
         null,
         null,
@@ -1130,15 +1139,16 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         1,
         1,
-        1,
-        1,
+        null,
         null,
         4,
         1,
+        6,
         null,
         null,
         null,
@@ -1252,6 +1262,11 @@
         null,
         null
       ],
+      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/author.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/rating.rb": [
         1,
         1,
@@ -1282,6 +1297,6 @@
         null
       ]
     },
-    "timestamp": 1407990484
+    "timestamp": 1408338963
   }
 }
