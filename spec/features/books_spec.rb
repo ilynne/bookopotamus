@@ -76,6 +76,14 @@ describe 'Books' do
           attach_file 'Cover', 'spec/fixtures/files/missing.png'
           expect { click_button 'Save' } .to change { Book.count }.by(1)
         end
+        it 'creates a new author' do
+          visit new_book_path
+          fill_in 'Title', with: book.title
+          fill_in 'Isbn 10', with: book.isbn_10
+          fill_in 'Isbn 13', with: book.isbn_13
+          fill_in 'book_author_attributes_last_first', with: 'Author, New'
+          expect { click_button 'Save' } .to change { Author.count }.by(1)
+        end
       end
       describe 'with invalid parameters' do
         it 'displays the errors' do

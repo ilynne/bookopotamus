@@ -1,0 +1,11 @@
+= form_for @author do |f|
+  - if @author.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@author.errors.count, "error")} prohibited this book from being saved:"
+      %ul
+        - @author.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset
+    %legend Author
+      = render 'authors/author_fields', :f => f
