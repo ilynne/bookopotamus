@@ -26,7 +26,7 @@
         %td= book.isbn_10
         %td= book.isbn_13
         %td= book.title
-        %td= author_last_first(book)
+        %td= author_last_first(book.author)
         %td
           = render 'shared/book_rating', :book => book
         - if current_user.present?
