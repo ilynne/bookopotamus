@@ -11,10 +11,16 @@ user.save
 user = User.new(email: 'ilynne@gmail.com', password: 'secretsecret', password_confirmation: 'secretsecret')
 user.save
 
+Author.delete_all
+author = Author.new(last_name: 'Sheffield', first_name: 'Charles')
+author.save
+author = Author.new(last_name: 'Asimov', first_name: 'Isaac')
+author.save
+
 Book.delete_all
-book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author_last: 'Sheffield', author_first: 'Charles', user: User.first)
+book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author: Author.first, user: User.first)
 book.save
-book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author_last: 'Sheffield', author_first: 'Charles', user: User.last)
+book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author: Author.first, user: User.last)
 book.save
 
 Rating.delete_all

@@ -2,13 +2,13 @@ class Book < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
   belongs_to :user
+  belongs_to :author
   mount_uploader :cover, CoverUploader
 
   validates :title, presence: true
   validates :isbn_10, presence: true, length: { is: 10 }
   validates :isbn_13, presence: true, length: { is: 14 }
-  validates :author_last, presence: true
-  validates :author_first, presence: true
+  validates :author_id, presence: true
 
   accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
