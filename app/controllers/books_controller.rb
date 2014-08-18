@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @book.reviews.build(user: current_user, body: 'good')
     @book.ratings.build(user: current_user, score: 0)
+    @book.build_author
   end
 
   # GET /books/1/edit
@@ -77,6 +78,7 @@ class BooksController < ApplicationController
                          :score,
                          :approved,
                          :cover,
-                         reviews_attributes: [:body, :user_id])
+                         reviews_attributes: [:body, :user_id],
+                         author_attributes: [:last_name, :first_name])
   end
 end

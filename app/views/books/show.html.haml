@@ -1,7 +1,7 @@
 %p#notice= notice
 
 %h1= @book.title
-%h4= author_last_first(@book)
+%h4= author_last_first(@book.author)
 
 = image_tag @book.cover_url(:medium).to_s
 

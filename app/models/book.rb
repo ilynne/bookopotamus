@@ -8,10 +8,11 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :isbn_10, presence: true, length: { is: 10 }
   validates :isbn_13, presence: true, length: { is: 14 }
-  validates :author_id, presence: true
+  # validates :author_id, presence: true
 
   accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
+  accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes['last_name'].blank? }
 
   # default_scope { where(approved: true) }
 

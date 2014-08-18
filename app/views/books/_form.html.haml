@@ -17,12 +17,9 @@
     .field
       = f.label :isbn_13
       = f.text_field :isbn_13
-    .field
-      = f.label :author_last
-      = f.text_field :author_last
-    .field
-      = f.label :author_first
-      = f.text_field :author_first
+  %fieldset
+    = f.fields_for :author do |author_form|
+      = render 'authors/author_fields', :f => author_form
     .field
       = f.label :cover
       = f.file_field :cover
