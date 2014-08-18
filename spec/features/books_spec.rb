@@ -72,8 +72,7 @@ describe 'Books' do
           fill_in 'Title', with: book.title
           fill_in 'Isbn 10', with: book.isbn_10
           fill_in 'Isbn 13', with: book.isbn_13
-          fill_in 'book_author_attributes_last_name', with: author.last_name
-          fill_in 'book_author_attributes_first_name', with: author.first_name
+          fill_in 'book_author_attributes_last_first', with: "#{author.last_name}, #{author.first_name}"
           attach_file 'Cover', 'spec/fixtures/files/missing.png'
           expect { click_button 'Save' } .to change { Book.count }.by(1)
         end
@@ -95,8 +94,7 @@ describe 'Books' do
           fill_in 'Title', with: book.title
           fill_in 'Isbn 10', with: book.isbn_10
           fill_in 'Isbn 13', with: book.isbn_13
-          fill_in 'book_author_attributes_last_name', with: author.last_name
-          fill_in 'book_author_attributes_first_name', with: author.first_name
+          fill_in 'book_author_attributes_last_first', with: "#{author.last_name}, #{author.first_name}"
           fill_in 'book_reviews_attributes_0_body', with: review.body
           click_button 'Save'
           expect(book.reviews.last.body).to eq(review.body)
