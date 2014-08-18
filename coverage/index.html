@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-18T05:56:10-07:00">2014-08-18T05:56:10-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-18T06:38:04-07:00">2014-08-18T06:38:04-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.21
+         2.38
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>42</b> files in total.
-    <b>364</b> relevant lines. 
-    <span class="green"><b>363</b> lines covered</span> and
+    <b>372</b> relevant lines. 
+    <span class="green"><b>371</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -87,7 +87,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>17.6</td>
+        <td>18.4</td>
       </tr>
       
       <tr>
@@ -133,21 +133,21 @@
       <tr>
         <td class="strong"><a href="#244fee7b934a1a85f8c74e5b4338f00ac0277715" class="src_link" title="app/models/author.rb">app/models/author.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>4</td>
-        <td>4</td>
+        <td>13</td>
+        <td>8</td>
+        <td>8</td>
         <td>0</td>
         <td>3.3</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#fea65861755fd786797e1229eb4980c5d3f1f40b" class="src_link" title="app/models/book.rb">app/models/book.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>33</td>
-        <td>20</td>
-        <td>20</td>
-        <td>0</td>
-        <td>2.5</td>
+        <td class="green strong">95.83 %</td>
+        <td>44</td>
+        <td>24</td>
+        <td>23</td>
+        <td>1</td>
+        <td>4.6</td>
       </tr>
       
       <tr>
@@ -187,7 +187,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>1.2</td>
+        <td>1.6</td>
       </tr>
       
       <tr>
@@ -392,11 +392,11 @@
       
       <tr>
         <td class="strong"><a href="#1959c147f8749cae4d64a2f34106573d0efa5b0a" class="src_link" title="spec/features/books_spec.rb">spec/features/books_spec.rb</a></td>
-        <td class="green strong">98.63 %</td>
+        <td class="green strong">100.0 %</td>
         <td>105</td>
         <td>73</td>
-        <td>72</td>
-        <td>1</td>
+        <td>73</td>
+        <td>0</td>
         <td>1.8</td>
       </tr>
       
@@ -1037,7 +1037,7 @@
         <li class="never" data-hits="" data-linenumber="82">
           
           
-          <code class="ruby">                         author_attributes: [:last_name, :first_name])</code>
+          <code class="ruby">                         author_attributes: [:last_name, :first_name, :last_first])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="83">
@@ -1178,14 +1178,14 @@
           <code class="ruby">  def devise_links</code>
         </li>
       
-        <li class="covered" data-hits="43" data-linenumber="3">
-          <span class="hits">43</span>
+        <li class="covered" data-hits="45" data-linenumber="3">
+          <span class="hits">45</span>
           
           <code class="ruby">    if current_user # user_signed_in?</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="4">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="26" data-linenumber="4">
+          <span class="hits">26</span>
           
           <code class="ruby">      link_to &#39;Log Out User&#39;, destroy_user_session_path, method: :delete</code>
         </li>
@@ -1367,8 +1367,8 @@
     <h3>app/models/author.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1415,6 +1415,42 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def last_first=(name)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    name_parts = name.split(&#39;, &#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    self.last_name = name_parts[0]</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="11">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    self.first_name = name_parts[1]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
           <code class="ruby">end</code>
         </li>
       
@@ -1425,11 +1461,11 @@
         <div class="source_table" id="fea65861755fd786797e1229eb4980c5d3f1f40b">
   <div class="header">
     <h3>app/models/book.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">95.83 %</span> covered</h4>
     <div>
-      <b>20</b> relevant lines. 
-      <span class="green"><b>20</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>24</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -1463,7 +1499,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  belongs_to :author</code>
+          <code class="ruby">  belongs_to :author, :autosave =&gt; true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -1523,7 +1559,7 @@
         <li class="covered" data-hits="6" data-linenumber="15">
           <span class="hits">6</span>
           
-          <code class="ruby">  accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes[&#39;last_name&#39;].blank? }</code>
+          <code class="ruby">  accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes[&#39;last_first&#39;].blank? }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -1562,8 +1598,8 @@
           <code class="ruby">  def average_rating</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="22">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="8" data-linenumber="22">
+          <span class="hits">8</span>
           
           <code class="ruby">    ratings.sum(:score).to_f / ratings.size.to_f</code>
         </li>
@@ -1586,14 +1622,14 @@
           <code class="ruby">  def user_rating(user)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="26">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="26">
+          <span class="hits">11</span>
           
           <code class="ruby">    rating = ratings.find_by_user_id(user)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="27">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="27">
+          <span class="hits">11</span>
           
           <code class="ruby">    rating.present? ? rating.score : 0</code>
         </li>
@@ -1629,6 +1665,72 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def autosave_associated_records_for_author</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="35">
+          <span class="hits">27</span>
+          
+          <code class="ruby">    if new_author = Author.find_by(last_name: author.last_name, first_name: author.first_name)</code>
+        </li>
+      
+        <li class="covered" data-hits="27" data-linenumber="36">
+          <span class="hits">27</span>
+          
+          <code class="ruby">      self.author = new_author</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">    #   # not quite sure why I need the part before the if,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">    #   # but somehow the seat is losing its client_id value</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">      self.author = author if self.author.save!</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">end</code>
@@ -1916,8 +2018,8 @@
           <code class="ruby">  def store_dir</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="16">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="6" data-linenumber="16">
+          <span class="hits">6</span>
           
           <code class="ruby">    &quot;uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}&quot;</code>
         </li>
@@ -6501,11 +6603,11 @@
         <div class="source_table" id="1959c147f8749cae4d64a2f34106573d0efa5b0a">
   <div class="header">
     <h3>spec/features/books_spec.rb</h3>
-    <h4><span class="green">98.63 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>73</b> relevant lines. 
-      <span class="green"><b>72</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <span class="green"><b>73</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -6968,8 +7070,8 @@
           <code class="ruby">          attach_file &#39;Cover&#39;, &#39;spec/fixtures/files/missing.png&#39;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="77">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="77">
+          <span class="hits">4</span>
           
           <code class="ruby">          expect { click_button &#39;Save&#39; } .to change { Book.count }.by(1)</code>
         </li>
@@ -7106,8 +7208,8 @@
           <code class="ruby">          click_button &#39;Save&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="100">
-          
+        <li class="covered" data-hits="1" data-linenumber="100">
+          <span class="hits">1</span>
           
           <code class="ruby">          expect(book.reviews.last.body).to eq(review.body)</code>
         </li>

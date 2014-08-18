@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
   belongs_to :user
-  belongs_to :author
+  belongs_to :author, :autosave => true
   mount_uploader :cover, CoverUploader
 
   validates :title, presence: true
@@ -12,7 +12,7 @@ class Book < ActiveRecord::Base
 
   accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
-  accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes['last_name'].blank? }
+  accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes['last_first'].blank? }
 
   # default_scope { where(approved: true) }
 
@@ -30,4 +30,15 @@ class Book < ActiveRecord::Base
   def approvable?
     cover.present?
   end
+
+  def autosave_associated_records_for_author
+    if new_author = Author.find_by(last_name: author.last_name, first_name: author.first_name)
+      self.author = new_author
+    else
+    #   # not quite sure why I need the part before the if,
+    #   # but somehow the seat is losing its client_id value
+      self.author = author if self.author.save!
+    end
+  end
+
 end

@@ -79,6 +79,6 @@ class BooksController < ApplicationController
                          :approved,
                          :cover,
                          reviews_attributes: [:body, :user_id],
-                         author_attributes: [:last_name, :first_name])
+                         author_attributes: [:last_name, :first_name, :last_first])
   end
 end
