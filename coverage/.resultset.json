@@ -1204,6 +1204,9 @@
         null,
         null,
         null,
+        1,
+        8,
+        null,
         null
       ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/uploaders/cover_uploader.rb": [
@@ -1336,6 +1339,18 @@
         null,
         null,
         1,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
         2,
         2,
         2,
@@ -1354,6 +1369,6 @@
         null
       ]
     },
-    "timestamp": 1408424168
+    "timestamp": 1408427873
   }
 }

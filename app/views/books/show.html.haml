@@ -21,6 +21,9 @@
   - if current_user.present?
     %th My Rating
     %td= render 'shared/book_user_rating', :book => @book, :user => current_user
+- unless @book.user_review(current_user).present?
+  %h4 Add a review:
+  = render 'reviews/add', :book => @book
 
 - if @book.reviews.any?
   %h4 Reviews
@@ -29,12 +32,10 @@
       %th Rating
       %th Member
     - @book.reviews.each do |review|
-      - @r = review
       %tr
         %td= render 'shared/book_user_rated', :book => @book, :user => review.user, :score => @book.user_rating(review.user)
         %td= review.user.email
       %tr
         %td{:colspan => 2}
-          = render 'reviews/show_or_edit', :review => @r
-
+          = render 'reviews/show_or_edit', :review => review, :book => @book
 

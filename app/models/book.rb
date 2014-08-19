@@ -41,4 +41,7 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def user_review(user)
+    reviews.find_by user_id: user.id
+  end
 end

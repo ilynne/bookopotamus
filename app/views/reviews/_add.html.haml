@@ -1,0 +1,5 @@
+- @review = Review.new
+= form_for @review do |f|
+  = render 'reviews/review_fields', :f => f, :book => book, :user => current_user
+  .actions
+    = f.submit 'Submit'

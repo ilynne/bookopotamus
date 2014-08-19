@@ -1,8 +1,7 @@
-- @review = review
-- if current_user && @review.user == current_user
-  = form_for @review do |f|
-    = render 'reviews/review_fields', :f => f
+- if current_user && review.user == current_user
+  = form_for review do |f|
+    = render 'reviews/review_fields', :f => f, :book => book
     .actions
       = f.submit 'Update'
 - else
-  = @review.body
+  = review.body

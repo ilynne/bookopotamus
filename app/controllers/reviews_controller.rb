@@ -3,6 +3,18 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def create
+    # @review = Review.new(review_params)
+    @review = Review.find_or_create_by(book_id: params[:review][:book_id], user_id: params[:review][:user_id])
+    @review.body = params[:review][:body]
+    @book = Book.find(params[:review][:book_id])
+    if @review.save
+      redirect_to @book, notice: 'Review was successfully submitted.'
+    else
+      redirect_to @book, notice: 'Error'
+    end
+  end
+
   def update
     @review = Review.find(params[:id])
     @book = @review.book
