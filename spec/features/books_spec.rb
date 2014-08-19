@@ -127,6 +127,23 @@ describe 'Books' do
             expect(page).to have_text('Error')
           end
         end
+        describe 'adding inline reviews' do
+          before(:each) do
+            @user_book = FactoryGirl.create(:book, user: user)
+          end
+          it 'creates a new review' do
+            visit book_path @user_book
+            fill_in 'review_body', with: 'Great'
+            expect { click_button 'Submit' } .to change { Review.count }.by(1)
+            # expect(@user_review.body).to eq('Great')
+          end
+          it 'does not create an empty review' do
+            visit book_path @user_book
+            fill_in 'review_body', with: ''
+            click_button 'Submit'
+            expect(page).to have_text('Error')
+          end
+        end
       end
     end
   end
