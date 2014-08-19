@@ -89,7 +89,7 @@ describe 'Books' do
         it 'displays the errors' do
           visit new_book_path
           click_button 'Save'
-          expect(page).to have_text("prohibited this book")
+          expect(page).to have_text('prohibited this book')
         end
       end
       describe 'with a nested review' do
@@ -106,6 +106,26 @@ describe 'Books' do
           fill_in 'book_reviews_attributes_0_body', with: review.body
           click_button 'Save'
           expect(book.reviews.last.body).to eq(review.body)
+        end
+        describe 'editing inline reviews' do
+          before(:each) do
+            @user_book = FactoryGirl.create(:book, user: user)
+            @user_review = FactoryGirl.create(:review, user: user, book: @user_book)
+          end
+          it 'updates a review' do
+            visit book_path @user_book
+            fill_in 'review_body', with: 'Great'
+            click_button 'Update'
+            @user_review.reload
+            expect(@user_review.body).to eq('Great')
+          end
+          it 'rejects an empty review' do
+            visit book_path @user_book
+            fill_in 'review_body', with: ''
+            click_button 'Update'
+            @user_review.reload
+            expect(page).to have_text('Error')
+          end
         end
       end
     end

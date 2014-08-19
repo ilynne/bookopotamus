@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to @book, notice: 'Review was successfully updated.'
     else
-      render redirect_to @book, notice: 'Error'
+      redirect_to @book, notice: 'Error'
     end
   end
 
