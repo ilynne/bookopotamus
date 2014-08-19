@@ -29,10 +29,12 @@
       %th Rating
       %th Member
     - @book.reviews.each do |review|
+      - @r = review
       %tr
         %td= render 'shared/book_user_rated', :book => @book, :user => review.user, :score => @book.user_rating(review.user)
         %td= review.user.email
       %tr
-        %td{:colspan => 2}= review.body
+        %td{:colspan => 2}
+          = render 'reviews/show_or_edit', :review => @r
 
 
