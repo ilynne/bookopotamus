@@ -1,6 +1,9 @@
 %p#notice= notice
 
-%h1= @book.title
+%h1
+  =@book.title
+  %small
+    =link_to 'Edit', edit_book_path(@book), :class => :small if @book.user == current_user
 %h4= author_last_first(@book.author)
 
 = image_tag @book.cover_url(:medium).to_s
@@ -19,6 +22,17 @@
     %th My Rating
     %td= render 'shared/book_user_rating', :book => @book, :user => current_user
 
-= link_to 'Edit', edit_book_path(@book)
-\|
-= link_to 'Back', books_path
+- if @book.reviews.any?
+  %h4 Reviews
+  %table.table.table-nonfluid
+    %tr
+      %th Rating
+      %th Member
+    - @book.reviews.each do |review|
+      %tr
+        %td= render 'shared/book_user_rated', :book => @book, :user => review.user, :score => @book.user_rating(review.user)
+        %td= review.user.email
+      %tr
+        %td{:colspan => 2}= review.body
+
+
