@@ -58,8 +58,14 @@ class BooksController < ApplicationController
 
   # DELETE /books/1
   def destroy
-    @book.destroy
-    redirect_to books_url, notice: 'Book was successfully destroyed.'
+    action = 'deleted'
+    if @book.user == current_user && @book.deleteable?
+      @book.destroy
+    else
+      @book.update_attribute(:active, false)
+      action = 'deactivated'
+    end
+    redirect_to books_url, notice: "Book was successfully #{action}."
   end
 
   private
