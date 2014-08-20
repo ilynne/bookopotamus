@@ -6,4 +6,8 @@ module ApplicationHelper
       link_to 'Log In', new_user_session_path
     end
   end
+
+  def delete_text(book)
+    book.deleteable? ? 'Delete' : 'Deactivate'
+  end
 end
