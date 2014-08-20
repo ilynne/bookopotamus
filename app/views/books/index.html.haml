@@ -33,7 +33,11 @@
           %td
             = render 'shared/book_user_rating', :book => book, :user => current_user
         %td= link_to 'Edit', edit_book_path(book)
-        %td= link_to 'Destroy', book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+        %td
+          - if book.deleteable? && book.user == current_user
+            = link_to 'Destroy', book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+          - else
+            &nbsp;
 - else
   %p No books! 
   = link_to 'Add a book', new_book_path
