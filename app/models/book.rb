@@ -46,6 +46,6 @@ class Book < ActiveRecord::Base
   end
 
   def deleteable?
-    reviews.any? || ratings.any?
+    !reviews.any? && !ratings.any?
   end
 end

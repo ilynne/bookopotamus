@@ -146,5 +146,16 @@ describe 'Books' do
         end
       end
     end
+
+    describe 'deleting books' do
+      it 'should not be deleteable if there are ratings or reviews' do
+        rating = FactoryGirl.create(:rating, book: book)
+        review = FactoryGirl.create(:review, book: book)
+        expect(book.deleteable?).to eq(false)
+      end
+      it 'should be deleteable if there are no ratings or reviews' do
+        expect(book.deleteable?).to eq(true)
+      end
+    end
   end
 end
