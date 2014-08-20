@@ -35,7 +35,10 @@
         %td= link_to 'Edit', edit_book_path(book)
         %td
           - if book.user == current_user
-            = link_to delete_text(book), book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+            - if book.active?
+              = link_to delete_text(book), book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
+            - else
+              Inactive
           - else
             &nbsp;
 - else
