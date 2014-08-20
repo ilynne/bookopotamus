@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818040900) do
+ActiveRecord::Schema.define(version: 20140820062729) do
 
   create_table "authors", force: true do |t|
     t.string   "last_name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140818040900) do
     t.boolean  "approved",   default: false
     t.string   "cover"
     t.integer  "author_id"
+    t.boolean  "active",     default: true
   end
 
   create_table "ratings", force: true do |t|
