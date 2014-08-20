@@ -35,13 +35,13 @@ describe 'Books' do
       it 'should have a destroy link' do
         book.save
         visit books_path
-        expect(page.body).to have_link('Destroy')
+        expect(page.body).to have_link('Delete')
       end
       it 'should delete the book' do
         book.save
         visit books_path
         # click_link 'destroy'
-        expect { click_link 'Destroy' } .to change { Book.count }.by(-1)
+        expect { click_link 'Delete' } .to change { Book.count }.by(-1)
       end
     end
     describe 'Editing a book' do
@@ -149,10 +149,12 @@ describe 'Books' do
 
     describe 'deleting books' do
       describe 'a book without ratings or reviews' do
+        before(:each) do
           @book = FactoryGirl.create(:book)
-      end
-      it 'should be deleteable' do
-        expect(@book.deleteable?).to eq(true)
+        end
+        it 'should be deleteable' do
+          expect(@book.deleteable?).to eq(true)
+        end
       end
       describe 'a book with a rating and a review' do
         before(:each) do
@@ -160,9 +162,9 @@ describe 'Books' do
           @rating = FactoryGirl.create(:rating, book: @book)
           @review = FactoryGirl.create(:review, book: @book)
         end
-      end
-      it 'should not be deleteable' do
-        expect(@book.deleteable?).to eq(false)
+        it 'should not be deleteable' do
+          expect(@book.deleteable?).to eq(false)
+        end
       end
     end
   end

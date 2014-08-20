@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-19T22:58:54-07:00">2014-08-19T22:58:54-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-19T23:23:59-07:00">2014-08-19T23:23:59-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.8
+         2.77
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>42</b> files in total.
-    <b>433</b> relevant lines. 
-    <span class="green"><b>433</b> lines covered</span> and
+    <b>441</b> relevant lines. 
+    <span class="green"><b>441</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -83,11 +83,11 @@
       <tr>
         <td class="strong"><a href="#d19130df4cf6a0d95cb9c4be36f75217a7a891bf" class="src_link" title="app/helpers/application_helper.rb">app/helpers/application_helper.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>9</td>
-        <td>5</td>
-        <td>5</td>
+        <td>13</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
-        <td>28.0</td>
+        <td>20.6</td>
       </tr>
       
       <tr>
@@ -147,7 +147,7 @@
         <td>28</td>
         <td>28</td>
         <td>0</td>
-        <td>6.7</td>
+        <td>6.8</td>
       </tr>
       
       <tr>
@@ -387,17 +387,17 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>7.7</td>
+        <td>8.0</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#1959c147f8749cae4d64a2f34106573d0efa5b0a" class="src_link" title="spec/features/books_spec.rb">spec/features/books_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>161</td>
-        <td>115</td>
-        <td>115</td>
+        <td>171</td>
+        <td>121</td>
+        <td>121</td>
         <td>0</td>
-        <td>1.9</td>
+        <td>1.8</td>
       </tr>
       
       <tr>
@@ -1283,8 +1283,8 @@
     <h3>app/helpers/application_helper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>5</b> relevant lines. 
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1341,6 +1341,30 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def delete_text(book)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    book.deleteable? ? &#39;Delete&#39; : &#39;Deactivate&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>
@@ -1886,8 +1910,8 @@
           <code class="ruby">  def deleteable?</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="49">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="5" data-linenumber="49">
+          <span class="hits">5</span>
           
           <code class="ruby">    !reviews.any? &amp;&amp; !ratings.any?</code>
         </li>
@@ -6716,8 +6740,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="48" data-linenumber="5">
-          <span class="hits">48</span>
+        <li class="covered" data-hits="50" data-linenumber="5">
+          <span class="hits">50</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;arthur_dent#{n}@example.org&quot;  } </code>
         </li>
@@ -6773,8 +6797,8 @@
     <h3>spec/features/books_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>115</b> relevant lines. 
-      <span class="green"><b>115</b> lines covered</span> and
+      <b>121</b> relevant lines. 
+      <span class="green"><b>121</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6842,8 +6866,8 @@
           <code class="ruby">  let(:author) { FactoryGirl.create(:author) }</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="11">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="9" data-linenumber="11">
+          <span class="hits">9</span>
           
           <code class="ruby">  let(:book) { FactoryGirl.create(:book, user: user) }</code>
         </li>
@@ -7007,7 +7031,7 @@
         <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(page.body).to have_link(&#39;Destroy&#39;)</code>
+          <code class="ruby">        expect(page.body).to have_link(&#39;Delete&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -7043,7 +7067,7 @@
         <li class="covered" data-hits="4" data-linenumber="44">
           <span class="hits">4</span>
           
-          <code class="ruby">        expect { click_link &#39;Destroy&#39; } .to change { Book.count }.by(-1)</code>
+          <code class="ruby">        expect { click_link &#39;Delete&#39; } .to change { Book.count }.by(-1)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
@@ -7685,43 +7709,43 @@
         <li class="covered" data-hits="1" data-linenumber="151">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;should not be deleteable if there are ratings or reviews&#39; do</code>
+          <code class="ruby">      describe &#39;a book without ratings or reviews&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="152">
           <span class="hits">1</span>
           
-          <code class="ruby">        rating = FactoryGirl.create(:rating, book: book)</code>
+          <code class="ruby">        before(:each) do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="153">
           <span class="hits">1</span>
           
-          <code class="ruby">        review = FactoryGirl.create(:review, book: book)</code>
+          <code class="ruby">          @book = FactoryGirl.create(:book)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="154">
+        <li class="never" data-hits="" data-linenumber="154">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="155">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(book.deleteable?).to eq(false)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="155">
-          
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">        it &#39;should be deleteable&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="156">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &#39;should be deleteable if there are no ratings or reviews&#39; do</code>
+          <code class="ruby">          expect(@book.deleteable?).to eq(true)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="157">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="157">
           
-          <code class="ruby">        expect(book.deleteable?).to eq(true)</code>
+          
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="158">
@@ -7730,19 +7754,79 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="159">
+        <li class="covered" data-hits="1" data-linenumber="159">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      describe &#39;a book with a rating and a review&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="160">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        before(:each) do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="161">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @book = FactoryGirl.create(:book)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="162">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @rating = FactoryGirl.create(:rating, book: @book)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="163">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          @review = FactoryGirl.create(:review, book: @book)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="164">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="165">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        it &#39;should not be deleteable&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="166">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          expect(@book.deleteable?).to eq(false)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="167">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="168">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="169">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="160">
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="161">
+        <li class="never" data-hits="" data-linenumber="171">
           
           
           <code class="ruby">end</code>
