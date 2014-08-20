@@ -44,4 +44,8 @@ class Book < ActiveRecord::Base
   def user_review(user)
     reviews.find_by user_id: user.id
   end
+
+  def deleteable?
+    reviews.any? || ratings.any?
+  end
 end
