@@ -148,13 +148,21 @@ describe 'Books' do
     end
 
     describe 'deleting books' do
-      it 'should not be deleteable if there are ratings or reviews' do
-        rating = FactoryGirl.create(:rating, book: book)
-        review = FactoryGirl.create(:review, book: book)
-        expect(book.deleteable?).to eq(false)
+      describe 'a book without ratings or reviews' do
+          @book = FactoryGirl.create(:book)
       end
-      it 'should be deleteable if there are no ratings or reviews' do
-        expect(book.deleteable?).to eq(true)
+      it 'should be deleteable' do
+        expect(@book.deleteable?).to eq(true)
+      end
+      describe 'a book with a rating and a review' do
+        before(:each) do
+          @book = FactoryGirl.create(:book)
+          @rating = FactoryGirl.create(:rating, book: @book)
+          @review = FactoryGirl.create(:review, book: @book)
+        end
+      end
+      it 'should not be deleteable' do
+        expect(@book.deleteable?).to eq(false)
       end
     end
   end
