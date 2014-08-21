@@ -9,11 +9,19 @@ class RatingsController < ApplicationController
   # GET /books/id/ratings/new
   def new
     @book = Book.find(params[:book_id])
-    @rating = Rating.find_or_create_by(user: current_user, book: @book)
-    @rating.score = params[:score]
+    if @book.active
+      @rating = Rating.find_or_create_by(user: current_user, book: @book)
+      update_rating(@rating, @book)
+    else
+      render json: @book.average_rating, status: :created
+    end
+  end
+
+  def update_rating(rating, book)
+    rating.score = params[:score]
     respond_to do |format|
-      if @rating.save
-        format.json { render json: @book.average_rating, status: :created }
+      if rating.save
+        format.json { render json: book.average_rating, status: :created }
       end
     end
   end
