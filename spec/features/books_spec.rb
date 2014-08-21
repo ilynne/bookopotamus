@@ -126,6 +126,14 @@ describe 'Books' do
             @user_review.reload
             expect(page).to have_text('Error')
           end
+          it 'does not update the review if the book is disabled' do
+            @user_book.update_attribute(:active, false)
+            visit book_path @user_book
+            fill_in 'review_body', with: 'A different review.'
+            click_button 'Update'
+            @user_review.reload
+            expect(page).to have_text('disabled')
+          end
         end
         describe 'adding inline reviews' do
           before(:each) do
@@ -142,6 +150,13 @@ describe 'Books' do
             fill_in 'review_body', with: ''
             click_button 'Submit'
             expect(page).to have_text('Error')
+          end
+          it 'does not create a review for a disabled book' do
+            @user_book.update_attribute(:active, false)
+            visit book_path @user_book
+            fill_in 'review_body', with: ''
+            click_button 'Submit'
+            expect(page).to have_text('disabled')
           end
         end
       end

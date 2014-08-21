@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
   def index
     @reviews = Review.all
   end
@@ -7,7 +8,9 @@ class ReviewsController < ApplicationController
     @review = Review.find_or_create_by(book_id: params[:review][:book_id], user_id: params[:review][:user_id])
     @review.body = params[:review][:body]
     @book = Book.find(params[:review][:book_id])
-    return unless @book.active
+    unless @book.active
+      redirect_to @book, notice: 'This book is disabled,' and return
+    end
     if @review.save
       redirect_to @book, notice: 'Review was successfully submitted.'
     else
@@ -18,7 +21,9 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     @book = @review.book
-    return unless @book.active
+    unless @book.active
+      redirect_to @book, notice: 'This book is disabled' and return
+    end
     if @review.update(review_params)
       redirect_to @book, notice: 'Review was successfully updated.'
     else
