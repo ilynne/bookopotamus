@@ -53,6 +53,8 @@ gem 'figaro'
 gem 'mini_magick'
 gem 'carrierwave'
 
+gem 'pretender'
+
 group :production do
   gem 'pg'
   # gem 'rails_12factor'
