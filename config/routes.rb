@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'ratings/index'
 
-  devise_for :users
+  devise_for :users do
+    post '/impersonate' => 'users/impersonate'
+  end
   resources :books do
     resources :ratings, only: [:update, :new]
   end
