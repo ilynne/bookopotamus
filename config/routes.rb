@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  post 'users/impersonate'
-  post 'users/stop_impersonating'
+  get 'users/:id/impersonate' => 'users#impersonate'
+  get 'users:/id/stop_impersonating' => 'users#stop_impersonating'
 
   get 'ratings/index'
 

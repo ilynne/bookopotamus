@@ -1,7 +1,7 @@
 %h1 Books
 - if current_user.try(:admin?)
   %p You are an admin
-  = select(:user, :id, options_for_select(User.all.map{|u| [u.email, u.id]}))
+  = f.select(:user, :id, options_for_select(User.all.map{|u| [u.email, u.id]}))
 
 - if @books.count > 0
   %table
