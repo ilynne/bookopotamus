@@ -31,7 +31,8 @@
             %ul.nav
               %li= link_to 'Add a book', new_book_path if current_user
             %ul.nav.pull-right
-              %li.nav= link_to current_user.email, '#' if current_user
+              %li.nav
+                = link_to "#{current_user.email}#{current_user_admin(current_user)}", '#' if current_user
               %li.nav= link_to 'Log In', new_user_session_path unless current_user
               %li.nav= link_to 'Logout', destroy_user_session_path, method: :delete if current_user
 
