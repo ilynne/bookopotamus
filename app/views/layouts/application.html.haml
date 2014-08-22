@@ -29,9 +29,7 @@
           %a.brand(href="#") Bookopotamus
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Add a book', new_book_path if current_user
             %ul.nav.pull-right
               %li.nav= link_to current_user.email, '#' if current_user
               %li.nav= link_to 'Log In', new_user_session_path unless current_user
@@ -44,9 +42,7 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Add a book', new_book_path if current_user
         .span9
           = bootstrap_flash
           = yield
