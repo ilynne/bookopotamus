@@ -29,6 +29,7 @@
           %a.brand(href="#") Bookopotamus
           .container.nav-collapse
             %ul.nav
+              %li= link_to 'Books', books_path
               %li= link_to 'Add a book', new_book_path if current_user
             %ul.nav.pull-right
               %li.nav
