@@ -5,6 +5,7 @@
     %tr
       - if current_user.try(:admin?)
         %th 
+          %i.icon-ok
       %th
       %th ISBN-10
       %th ISBN-13
@@ -19,9 +20,9 @@
       %tr
         - if current_user.try(:admin?) && book.approvable?
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, class: 'approved', data: { book_id: book.id, url: books_path, method: 'PATCH' }
-        - else
-          %td
-        %td= image_tag book.cover_url(:thumb).to_s
+        %td
+          = link_to book_path book do
+            = image_tag book.cover_url(:thumb).to_s
         %td= book.isbn_10
         %td= book.isbn_13
         %td= book.title

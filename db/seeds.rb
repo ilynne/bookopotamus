@@ -10,18 +10,29 @@ user = User.new(email: 'lynne@ilynne.com', password: 'secretsecret', password_co
 user.save
 user = User.new(email: 'ilynne@gmail.com', password: 'secretsecret', password_confirmation: 'secretsecret')
 user.save
+20.times do |n|
+  user = User.new(email: "example#{n}@example.com", password: "secret#{n}secret", password_confirmation: "secret#{n}secret")
+  user.save
+end
 
 Author.delete_all
 author = Author.new(last_name: 'Sheffield', first_name: 'Charles')
 author.save
 author = Author.new(last_name: 'Asimov', first_name: 'Isaac')
 author.save
+author = Author.new(last_name: 'Adams', first_name: 'Douglas')
+author.save
 
 Book.delete_all
-book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author: Author.first, user: User.first)
+book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-0671877743', author: Author.first, user: User.first, approved: [true, false].sample, cover: File.open(File.join(Rails.root, '/public/images/dontpanic.png')))
 book.save
-book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author: Author.first, user: User.last)
+book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author: Author.first, user: User.last, approved: [true, false].sample, cover: File.open(File.join(Rails.root, '/public/images/dontpanic.png')))
 book.save
+20.times do |n|
+  isbn = 1000000000 + n
+  book = Book.new(title: "Example Book Title #{n}", isbn_10: isbn, isbn_13: "123-#{isbn}", author: Author.all.sample, user: User.all.sample, approved: [true, false].sample, cover: File.open(File.join(Rails.root, '/public/images/dontpanic.png')))
+  book.save
+end
 
 Rating.delete_all
 rating = Rating.new(score: 5, user: User.first, book: Book.first)
