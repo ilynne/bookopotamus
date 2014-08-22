@@ -1,0 +1,7 @@
+- if current_user.try(:admin?)
+  %impersonate
+    %p.nav-header View as:
+    = form_for :user, :as => :post, :url => impersonate_path do |f|
+      = select(:user, :id, options_for_select(User.all.map{|u| [u.email, u.id]}))
+      .actions
+        = f.submit 'Impersonate', :class => 'btn btn-submit'

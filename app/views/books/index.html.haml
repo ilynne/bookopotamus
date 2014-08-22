@@ -1,15 +1,4 @@
 %h1 Books
-- if current_user.try(:admin?)
-  %p You are an admin
-  = form_for :user, :as => :post, :url => impersonate_path do |f|
-    = select(:user, :id, options_for_select(User.all.map{|u| [u.email, u.id]}))
-    .actions
-      = f.submit 'Impersonate'
-- if current_user != true_user
-  You (#{true_user.email}) are signed in as #{current_user.email}
-  = link_to "Back to admin", stop_impersonating_path
-  = impersonate_path 2
-  = stop_impersonating_path
 
 - if @books.count > 0
   %table
