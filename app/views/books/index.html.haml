@@ -1,7 +1,7 @@
 %h1 Books
 
 - if @books.count > 0
-  %table
+  %table.table-bordered
     %tr
       - if current_user.try(:admin?)
         %th 
@@ -14,8 +14,8 @@
       %th Rating
       - if current_user.present?
         %th My Rating
-      %th
-      %th
+        %th 1
+        %th 2
     - @books.each do |book|
       %tr
         - if current_user.try(:admin?) && book.approvable?
@@ -32,15 +32,15 @@
         - if current_user.present?
           %td
             = render 'shared/book_user_rating', :book => book, :user => current_user
-        %td= link_to 'Edit', edit_book_path(book)
-        %td
-          - if book.user == current_user
-            - if book.active?
+          %td
+            = link_to 'Edit', edit_book_path(book) if book.user == current_user
+          %td
+            - if book.active? && book.user == current_user
               = link_to delete_text(book), book, :method => :delete, :id => "destroy_#{book.id}", :data => { :confirm => 'Are you sure?' }
             - else
-              Inactive
-          - else
-            &nbsp;
+              = book_status(book)
+        - else
+          &nbsp;
 - else
   %p No books! 
   = link_to 'Add a book', new_book_path

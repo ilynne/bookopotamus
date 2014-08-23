@@ -14,4 +14,8 @@ module ApplicationHelper
   def current_user_admin(user)
     user.admin? ? ' [admin] ' : ''
   end
+
+  def book_status(book)
+    book.active? ? 'Active' : 'Inactive'
+  end
 end
