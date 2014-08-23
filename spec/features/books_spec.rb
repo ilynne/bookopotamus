@@ -16,6 +16,10 @@ describe 'Books' do
       visit books_path
       expect(page.body).to have_text('No books!')
     end
+    it 'redirects to books path if book not found' do
+      visit book_path book.id + 1
+      expect(page.body).to have_text('Books')
+    end
   end
 
   describe 'as a signed in user' do
