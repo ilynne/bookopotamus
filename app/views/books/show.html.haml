@@ -4,6 +4,11 @@
   =@book.title
   %small
     =link_to 'Edit', edit_book_path(@book), :class => :small if @book.user == current_user
+    - if @book.active? && @book.user == current_user
+      = link_to delete_text(@book), @book, :method => :delete, :id => "destroy_#{@book.id}", :data => { :confirm => 'Are you sure?' }
+    - else
+      = book_status(@book)
+
 %h4= author_last_first(@book.author)
 
 = image_tag @book.cover_url(:medium).to_s

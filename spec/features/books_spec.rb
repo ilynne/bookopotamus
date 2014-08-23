@@ -177,7 +177,7 @@ describe 'Books' do
       end
       describe 'a book with a rating and a review' do
         before(:each) do
-          @book = FactoryGirl.create(:book)
+          @book = FactoryGirl.create(:book, approved: true)
           @rating = FactoryGirl.create(:rating, book: @book)
           @review = FactoryGirl.create(:review, book: @book)
         end
