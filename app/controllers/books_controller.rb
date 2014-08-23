@@ -92,35 +92,26 @@ class BooksController < ApplicationController
     b = books.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     authors = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
     a = books.where(author_id: authors)
-    # r = books.where(id: books.first.id)
     reviews = Review.where(book_id: book_ids)
     review_book_ids = reviews.where('body LIKE ?', "%#{params[:search]}%").pluck(:book_id)
     r = books.where(id: review_book_ids)
-    # puts reviews.inspect
-    # r = books.where(id: reviews.join(','))
-    b + a + r
-    # r
-    # book_ids = books.pluck(:id)
-    # Book.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
-    # # ids = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%").pluck(:id)
-    # author_ids = Book.where(author_id: authors.join(',')).pluck(:id)
-    # # book_reviews = Review.where(book_id: book_ids.join(','))
-    # # book_reviews = book_reviews.where('body LIKE ?', "%#{params[:search]}%")
-    # # # reviews = reviews.where('body LIKE ?', "%#{params[:search]}%")
-    # # reviews_ids = book_reviews.pluck(:book_id)
-    # # review_where = books.where(id: reviews_ids.join(','))
-    # # puts review_where.inspect
-    # # r = find_reviews book_ids
-    # # puts r.inspect
-    # ids = author_ids + book_ids
-    # Book.where(id: ids.join(','))
-    # reviews_where
-    # author_where
-    # book_where
+    rt = find_by_average_rating books
+    b + a + r + rt
   end
 
-  def find_reviews book_ids
-    Review.where('body LIKE ?', "%#{params[:search]}%")
+  def find_by_average_rating books
+    rt = books.none
+    if params[:search].to_i > 0 && params[:search].to_i <= 5
+      score = params[:search].to_i
+      rating_ids = []
+      books.each do |book|
+        if book.average_rating < score +1  && book.average_rating >= score
+          rating_ids.push book.id
+        end
+      end
+      rt = books.where(id: rating_ids)
+    end
+    rt
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
