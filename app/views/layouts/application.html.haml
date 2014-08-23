@@ -53,6 +53,10 @@
               = render 'shared/true_user_links'
         .span9
           = bootstrap_flash
+          .row-fluid
+            .span-9
+              #search_box.pull-right
+                = render 'shared/search_form'
           = yield
     
       %footer

@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   # GET /books
   def index
     if current_user
-      current_user.admin? ? @books = Book.all : @books = Book.where("user_id = ? OR approved = ?", current_user.id, 1)
+      current_user.admin? ? @books = Book.all : @books = Book.user_book_index(current_user)
     else
       @books = Book.approved
     end

@@ -1,6 +1,7 @@
 %h1 Books
 
 - if @books.count > 0
+  %p= "#{@books.count} books:" 
   %table.table-bordered
     %tr
       - if current_user.try(:admin?)
