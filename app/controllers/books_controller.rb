@@ -105,7 +105,7 @@ class BooksController < ApplicationController
       score = params[:search].to_i
       rating_ids = []
       books.each do |book|
-        if book.average_rating < score +1  && book.average_rating >= score
+        if book.average_rating < score + 1  && book.average_rating >= score
           rating_ids.push book.id
         end
       end
