@@ -88,7 +88,39 @@ class BooksController < ApplicationController
   end
 
   def find_books books
-    @books = Book.where(:title, params[:search])
+    book_ids = books.pluck(:id)
+    b = books.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+    authors = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
+    a = books.where(author_id: authors)
+    # r = books.where(id: books.first.id)
+    reviews = Review.where(book_id: book_ids)
+    review_book_ids = reviews.where('body LIKE ?', "%#{params[:search]}%").pluck(:book_id)
+    r = books.where(id: review_book_ids)
+    # puts reviews.inspect
+    # r = books.where(id: reviews.join(','))
+    b + a + r
+    # r
+    # book_ids = books.pluck(:id)
+    # Book.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+    # # ids = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%").pluck(:id)
+    # author_ids = Book.where(author_id: authors.join(',')).pluck(:id)
+    # # book_reviews = Review.where(book_id: book_ids.join(','))
+    # # book_reviews = book_reviews.where('body LIKE ?', "%#{params[:search]}%")
+    # # # reviews = reviews.where('body LIKE ?', "%#{params[:search]}%")
+    # # reviews_ids = book_reviews.pluck(:book_id)
+    # # review_where = books.where(id: reviews_ids.join(','))
+    # # puts review_where.inspect
+    # # r = find_reviews book_ids
+    # # puts r.inspect
+    # ids = author_ids + book_ids
+    # Book.where(id: ids.join(','))
+    # reviews_where
+    # author_where
+    # book_where
+  end
+
+  def find_reviews book_ids
+    Review.where('body LIKE ?', "%#{params[:search]}%")
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
