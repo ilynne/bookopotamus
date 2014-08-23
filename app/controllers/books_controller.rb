@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:edit, :update, :destroy]
   before_filter only: [:new, :create, :edit, :update, :destroy] do
     redirect_to :new_user_session unless current_user
   end
@@ -76,6 +77,12 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
     rescue
       redirect_to books_path
+    end
+  end
+
+  def validate_user
+    unless @book.user == current_user
+      redirect_to books_url
     end
   end
 
