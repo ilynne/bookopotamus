@@ -54,7 +54,6 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem 'pretender'
-gem 'scoped_search'
 
 group :production do
   gem 'pg'

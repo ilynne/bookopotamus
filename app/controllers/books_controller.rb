@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     else
       @books = Book.approved
     end
+    @books = find_books @books if params[:search]
   end
 
   # GET /books/1
@@ -84,6 +85,10 @@ class BooksController < ApplicationController
     unless @book.user == current_user
       redirect_to books_url
     end
+  end
+
+  def find_books books
+    @books = Book.where(:title, params[:search])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

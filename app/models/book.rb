@@ -14,11 +14,6 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
   accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes['last_first'].blank? }
 
-  scoped_search :on => [:title, :isbn_10, :isbn_13]
-  scoped_search :in => :authors, :on => :last_first
-  scoped_search :in => :reviews, :on => :body
-  scoped_search :in => :ratings, :on => :score
-
   scope :approved, -> { where(approved: true) }
 
   def average_rating
