@@ -21,7 +21,7 @@
   - if current_user.present?
     %th My Rating
     %td= render 'shared/book_user_rating', :book => @book, :user => current_user
-- unless @book.user_review(current_user).present?
+- if current_user && @book.user_review(current_user).blank?
   %h4 Add a review:
   = render 'reviews/add', :book => @book
 

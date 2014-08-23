@@ -28,7 +28,7 @@ book = Book.new(title: 'Convergence', isbn_10: '0671877747', isbn_13: '978-06718
 book.save
 book = Book.new(title: 'Resurgence', isbn_10: '0743488199', isbn_13: '978-0743488198', author: Author.first, user: User.last, approved: [true, false].sample, cover: File.open(File.join(Rails.root, '/public/images/dontpanic.png')))
 book.save
-20.times do |n|
+50.times do |n|
   isbn = 1000000000 + n
   book = Book.new(title: "Example Book Title #{n}", isbn_10: isbn, isbn_13: "123-#{isbn}", author: Author.all.sample, user: User.all.sample, approved: [true, false].sample, cover: File.open(File.join(Rails.root, '/public/images/dontpanic.png')))
   book.save
@@ -43,6 +43,12 @@ rating = Rating.new(score: 4, user: User.last, book: Book.first)
 rating.save
 rating = Rating.new(score: 3, user: User.last, book: Book.last)
 rating.save
+Book.last(45).each do |b|
+  User.last(15).each do |u|
+    ratings = (1..5).to_a
+    rating = Rating.create!(score: ratings.sample, user: u, book: b)
+  end
+end
 
 Review.delete_all
 review = Review.new(body: 'This book is great.', user: User.first, book: Book.first)
@@ -53,3 +59,12 @@ review = Review.new(body: 'This book is terrible.', user: User.last, book: Book.
 review.save
 review = Review.new(body: 'This book is also terrible.', user: User.last, book: Book.last)
 review.save
+
+Book.last(35).each do |b|
+  User.last(15).each do |u|
+    review_prefix = ['I thought this book was', 'This book is']
+    reviews = [:great, :average, :terrible, :funny]
+    review = Review.create!(body: "#{review_prefix.sample} #{reviews.sample}.", user: u, book: b)
+  end
+end
+
