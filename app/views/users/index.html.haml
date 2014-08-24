@@ -2,15 +2,16 @@
 
 - if @users.count > 0
   %h3= "#{@users.count} users found:" 
-  %table.table-bordered
+  %table.table
     %tr
-      %th 
-        %i.icon-ok
+      %th Restricted
       %th Email
+      %th Admin
     - @users.each do |user|
       %tr
-        %td= user.admin
+        %td= user.restricted
         %td= user.email
+        %td= user.admin
   = will_paginate @users
 - else
   %p No users! 
