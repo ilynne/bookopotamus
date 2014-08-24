@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820062729) do
+ActiveRecord::Schema.define(version: 20140824050251) do
 
   create_table "authors", force: true do |t|
     t.string   "last_name"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20140820062729) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "isbn_13"
-    t.boolean  "approved",   default: false
+    t.boolean  "approved",                default: false
     t.string   "cover"
     t.integer  "author_id"
-    t.boolean  "active",     default: true
+    t.boolean  "active",                  default: true
+    t.float    "saved_rating", limit: 24
   end
 
   create_table "ratings", force: true do |t|

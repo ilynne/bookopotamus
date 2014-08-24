@@ -12,7 +12,7 @@
       %th.pretty= sortable 'isbn_13'
       %th= sortable 'title'
       %th= sortable 'author'
-      %th= sortable 'rating'
+      %th= sortable 'saved_rating', 'Rating'
       - if current_user.present?
         %th My Rating
         %th 1

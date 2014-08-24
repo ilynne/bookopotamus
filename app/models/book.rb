@@ -17,7 +17,13 @@ class Book < ActiveRecord::Base
   scope :approved, -> { where(approved: true) }
 
   def average_rating
-    ratings.sum(:score).to_f / ratings.size.to_f
+    saved_rating.present? ? saved_rating : calculate_average_rating.to_f
+  end
+
+  def calculate_average_rating
+    saved_rating = ratings.any? ? ratings.sum(:score).to_f / ratings.size : 0
+    update_attribute(:saved_rating, saved_rating)
+    saved_rating.to_f
   end
 
   def user_rating(user)
