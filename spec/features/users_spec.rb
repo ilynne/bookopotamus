@@ -58,12 +58,87 @@ describe 'Users' do
     end
 
     describe 'Admin' do
-      it 'indicates that the user is an admin' do
-        visit new_user_session_path
-        fill_in 'Email', with: admin.email
-        fill_in 'Password', with: admin.password
-        click_button 'Sign in'
-        expect(page.body).to include('[admin]')
+      describe 'as an admin' do
+        before(:each) do
+          visit new_user_session_path
+          fill_in 'Email', with: admin.email
+          fill_in 'Password', with: admin.password
+          click_button 'Sign in'
+        end
+
+        it 'allows the admin to impersonate a user' do
+          non_admin = FactoryGirl.create(:user)
+          visit root_path
+          select non_admin.email, :from => 'user_id'
+          click_button 'Impersonate'
+          expect(page.body).to include('are signed in as')
+        end
+
+        it 'allows the admin to stop impersonating a user' do
+          non_admin = FactoryGirl.create(:user)
+          visit root_path
+          select non_admin.email, :from => 'user_id'
+          click_button 'Impersonate'
+          click_link 'Back to admin'
+          expect(page.body).to_not include('are signed in as')
+        end
+
+        # it 'allows the admin to restrict a user', :js => true do
+        #   visit new_user_session_path
+        #   fill_in 'Email', with: admin.email
+        #   fill_in 'Password', with: admin.password
+        #   click_button 'Sign in'
+        #   non_admin = FactoryGirl.create(:user)
+        #   non_admin.save
+        #   visit users_path
+        #   sleep(5)
+        #   check "user_#{non_admin.id}_restricted"
+        #   visit users_path
+        #   non_admin.reload
+        #   expect(non_admin.restricted).to eq(true)
+        # end
+
+        it 'lists the users' do
+          visit users_path
+          expect(page.body).to include(User.all.count.to_s)
+        end
+
+        it 'indicates that the user is an admin' do
+          visit root_path
+          expect(page.body).to include('[admin]')
+        end
+
+        it 'allows the admin to add an admin' do
+          visit root_path
+          fill_in 'user_email', with: 'newadmin@example.com'
+          fill_in 'user_password', with: 'OpenSesame'
+          fill_in 'user_password_confirmation', with: 'OpenSesame'
+          check 'user_admin'
+          click_button 'Add'
+          expect(page.body).to include('Admin was added')
+        end
+
+        it 'does not add an admin with invalid credentials' do
+          visit root_path
+          fill_in 'user_email', with: 'newadmin@example.com'
+          fill_in 'user_password', with: 'OpenSesame'
+          fill_in 'user_password_confirmation', with: ''
+          check 'user_admin'
+          click_button 'Add'
+          expect(page.body).to include('There was a problem')
+        end
+      end
+      describe 'as a non admin' do
+        before(:each) do
+          visit new_user_session_path
+          fill_in 'Email', with: user.email
+          fill_in 'Password', with: user.password
+          click_button 'Sign in'
+        end
+        it 'should not show a user the users' do
+          visit users_path
+          expect(page.body).to_not include('Users')
+        end
       end
     end
   end

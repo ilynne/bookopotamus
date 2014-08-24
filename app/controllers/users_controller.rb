@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter only: [:index, :impersonate] do
-    redirect_to :new_user_session unless current_user.try(:admin?)
+    redirect_to root_path unless current_user.try(:admin?)
   end
 
   def index
@@ -11,10 +11,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User privileges changed.' }
+        format.html { redirect_to users_path, notice: 'User privileges changed.' }
         format.json { render :show, status: :ok }
       else
-        format.html { render :edit }
+        format.html { redirect_to users_path, error: 'That update was declined.' }
         format.json {}
       end
     end
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = 'Success!'
       flash[:notice] = 'Admin was added.'
     else
       flash[:error] = 'There was a problem creating the admin.'
