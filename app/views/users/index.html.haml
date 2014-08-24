@@ -1,0 +1,18 @@
+%h1 Users
+
+- if @users.count > 0
+  %h3= "#{@users.count} users found:" 
+  %table.table-bordered
+    %tr
+      %th 
+        %i.icon-ok
+      %th Email
+    - @users.each do |user|
+      %tr
+        %td= user.admin
+        %td= user.email
+  = will_paginate @users
+- else
+  %p No users! 
+  = link_to 'Invite admin', new_book_path
+
