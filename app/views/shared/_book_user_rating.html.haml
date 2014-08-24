@@ -1,4 +1,4 @@
 - if book && book.id.present?
-  .user_star{:data => {'score' => book.user_rating(current_user), 'book-id' => book.id, 'url' => "/books/#{book.id}/ratings/new"}}
+  .user_star{:data => {'score' => book.user_rating(current_user), 'book-id' => book.id, 'url' => "/books/#{book.id}/ratings/new", :readonly => current_user.restricted?}}
 - else
   .new_star
