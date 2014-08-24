@@ -49,9 +49,14 @@
           - if current_user.try(:admin?)
             .well.sidebar.nav
               = render 'shared/impersonate_links'
+            .well.sidebar.nav
+              %p new admin form
           - if current_user && current_user != true_user
             .well.sidebar.nav
               = render 'shared/true_user_links'
+          - if current_user
+            .well.sidebar.nav
+              %p invite user form
         .span9
           = bootstrap_flash
           .row-fluid
