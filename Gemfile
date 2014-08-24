@@ -54,6 +54,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem 'pretender'
+gem 'will_paginate'
 
 group :production do
   gem 'pg'
