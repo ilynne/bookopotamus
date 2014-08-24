@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   before_filter only: [:new, :create, :edit, :update, :destroy] do
     redirect_to :new_user_session unless current_user
   end
+  helper_method :sort_column, :sort_direction
 
   # GET /books
   def index
@@ -13,7 +14,7 @@ class BooksController < ApplicationController
       @books = Book.approved
     end
     @books = find_books @books if params[:search]
-    @books = @books.paginate(:page => params[:page])
+    @books = @books.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
   end
 
   # GET /books/1
@@ -123,6 +124,14 @@ class BooksController < ApplicationController
       end
     end
     rating_ids
+  end
+
+  def sort_column
+    Book.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

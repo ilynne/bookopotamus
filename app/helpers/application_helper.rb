@@ -18,4 +18,12 @@ module ApplicationHelper
   def book_status(book)
     book.active? ? 'Active' : 'Inactive'
   end
+
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    css_class = column == sort_column ? "current #{sort_direction}" : nil
+    direction = column == params[:sort] && params[:direction] == 'asc' ? 'desc' : 'asc'
+    # arrow = direction == 'asc' ? '^' : 'v'
+    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+  end
 end

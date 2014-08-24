@@ -8,11 +8,11 @@
         %th 
           %i.icon-ok
       %th
-      %th ISBN-10
-      %th ISBN-13
-      %th Title
-      %th Author
-      %th Rating
+      %th= sortable 'isbn_10'
+      %th.pretty= sortable 'isbn_13'
+      %th= sortable 'title'
+      %th= sortable 'author'
+      %th= sortable 'rating'
       - if current_user.present?
         %th My Rating
         %th 1
