@@ -9,9 +9,9 @@
       %th Admin
     - @users.each do |user|
       %tr
-        %td= user.restricted
+        %td= check_box_tag "user_#{user.id}_restricted", 1, user.restricted?, class: 'restricted', data: { user_id: user.id, url: users_path, method: 'PATCH' }
         %td= user.email
-        %td= user.admin
+        %td= check_box_tag "user_#{user.id}_admin", 1, user.admin?, class: 'admin', data: { user_id: user.id, url: users_path, method: 'PATCH' }
   = will_paginate @users
 - else
   %p No users! 
