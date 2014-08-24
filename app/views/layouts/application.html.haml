@@ -56,7 +56,7 @@
               = render 'shared/true_user_links'
           - if current_user
             .well.sidebar.nav
-              %p invite user form
+              = render 'users/invite_form'
         .span9
           = render 'shared/flash'
           .row-fluid

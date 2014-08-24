@@ -1,0 +1,13 @@
+= form_for User.new, url: users_invite_path do |f|
+  %fieldset
+    .nav-header Invite a member!
+    .field
+      = f.label :email
+      = f.email_field :email
+    - if current_user.admin?
+      .field
+        = f.label :admin
+        = f.check_box :admin
+    
+  .actions
+    = f.submit 'Invite'

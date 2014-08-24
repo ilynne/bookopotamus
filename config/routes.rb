@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users' => 'users#index'
   patch 'users/:id' => 'users#update'
   post 'users/admin' => 'users#create'
+  post 'users/invite' => 'users#invite'
   get 'ratings/index'
 
   devise_for :users
