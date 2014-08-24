@@ -1,6 +1,6 @@
 .field
   - if f.object.user_id == current_user.id || f.object.user_id.nil?
-    = f.text_area :body
+    = f.text_area :body, disabled: current_user.restricted?
     - if f.object.user_id.nil?
       = f.hidden_field :user_id, value: current_user.id
     - else

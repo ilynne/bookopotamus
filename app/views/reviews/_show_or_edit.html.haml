@@ -1,4 +1,4 @@
-- if current_user && review.user == current_user
+- if current_user && review.user == current_user && !current_user.restricted?
   = form_for review do |f|
     = render 'reviews/review_fields', :f => f, :book => book
     .actions
