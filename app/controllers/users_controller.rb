@@ -43,6 +43,16 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def invite
+    options = {:email => params[:user][:email], :from => current_user.email}
+    if Notification.member_invite(options).deliver
+      flash[:success] = 'Member invited!'
+    else
+      flash[:error] = 'Something went wrong!'
+    end
+    redirect_to root_path
+  end
+
   private
 
   def set_user
