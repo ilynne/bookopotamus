@@ -44,7 +44,10 @@ class UsersController < ApplicationController
   end
 
   def invite
-    options = {:email => params[:user][:email], :from => current_user.email}
+    options = { email: params[:user][:email], from: current_user.email, admin: false }
+    if params[:user][:admin].present? && params[:user][:admin] == '1'
+      options[:admin] = true
+    end
     if Notification.member_invite(options).deliver
       flash[:success] = 'Member invited!'
     else

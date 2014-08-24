@@ -7,9 +7,10 @@ class Notification < ActionMailer::Base
   end
 
   def member_invite(options)
+    @options = options
     @to = options[:email]
     @from = options[:from]
-    body = "#{@from} has invited you to join Bookopotamus. Go to http://bookopotamus.dev for more info."
-    mail(:to => @to, :from => @from, subject: 'An invitation to Bookopotamus', body: body)
+    @admin = true if options[:admin].present?
+    mail(:to => @to, :from => @from, subject: 'An invitation to Bookopotamus', :locals => { :options =>  @options })
   end
 end
