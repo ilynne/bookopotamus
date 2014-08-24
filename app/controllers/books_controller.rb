@@ -25,7 +25,6 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    # @book = Book.new(title: 'title', isbn_10: '1234567890', isbn_13: '123-1234567890', author_last: 'last', author_first: 'first')
     @book = Book.new
     @book.reviews.build(user: current_user, body: 'good')
     @book.ratings.build(user: current_user, score: 0)
@@ -127,11 +126,11 @@ class BooksController < ApplicationController
   end
 
   def sort_column
-    Book.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+    Book.column_names.include?(params[:sort]) ? params[:sort] : 'saved_rating'
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
