@@ -20,6 +20,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:notice] = 'Admin was added.'
+    else
+      flash[:error] = 'There was a problem creating the admin.'
+    end
+    # flash.keep
+    redirect_to root_path
+  end
+
   def impersonate
     user = User.find(params[:user][:id])
     impersonate_user(user)
@@ -42,7 +53,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user].permit(:admin,
+    params[:user].permit(:email,
+                         :password,
+                         :password_confirmation,
+                         :admin,
                          :restricted)
   end
 end

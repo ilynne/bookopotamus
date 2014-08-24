@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/stop_impersonating' => 'users#stop_impersonating', as: :stop_impersonating
   get 'users' => 'users#index'
   patch 'users/:id' => 'users#update'
-  post 'users/admin' => 'users#admin'
+  post 'users/admin' => 'users#create'
   get 'ratings/index'
 
   devise_for :users

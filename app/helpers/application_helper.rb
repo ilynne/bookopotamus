@@ -26,4 +26,19 @@ module ApplicationHelper
     # arrow = direction == 'asc' ? '^' : 'v'
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
+
+  def bootstrap_class_for(flash_type)
+    case flash_type.to_sym
+      when :success
+        'alert-success'
+      when :error
+        'alert-danger'
+      when :alert
+        'alert-block'
+      when :notice
+        'alert-info'
+      else
+        flash_type.to_s
+    end
+  end
 end
