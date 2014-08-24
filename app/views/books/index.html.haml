@@ -2,21 +2,20 @@
 
 - if @books.count > 0
   %h3= "#{@books.count} books found:" 
-  %table.table-bordered
+  %table.table
     %tr
       - if current_user.try(:admin?)
         %th 
           %i.icon-ok
       %th
       %th= sortable 'isbn_10'
-      %th.pretty= sortable 'isbn_13'
+      %th= sortable 'isbn_13'
       %th= sortable 'title'
-      %th= sortable 'author'
+      %th Author
       %th= sortable 'saved_rating', 'Rating'
       - if current_user.present?
         %th My Rating
-        %th 1
-        %th 2
+        %th{colspan: 2} Status
     - @books.each do |book|
       %tr
         - if current_user.try(:admin?) && book.approvable?
