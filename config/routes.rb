@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'users/impersonate' => 'users#impersonate', as: :impersonate
   get 'users/stop_impersonating' => 'users#stop_impersonating', as: :stop_impersonating
   get 'users' => 'users#index'
-  patch 'users' => 'users#update'
+  patch 'users/:id' => 'users#update'
 
   get 'ratings/index'
 
