@@ -13,10 +13,13 @@ class BooksController < ApplicationController
       @books = Book.approved
     end
     @books = find_books @books if params[:search]
+    @books = @books.paginate(:page => params[:page])
   end
 
   # GET /books/1
   def show
+    @book = Book.find(params[:id])
+    @reviews = @book.reviews.paginate(:page => params[:page])
   end
 
   # GET /books/new

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    @reviews = Review.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   def create

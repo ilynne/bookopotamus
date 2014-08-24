@@ -42,6 +42,7 @@
               = book_status(book)
         - else
           &nbsp;
+  = will_paginate @books
 - else
   %p No books! 
   = link_to 'Add a book', new_book_path

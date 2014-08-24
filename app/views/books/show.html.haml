@@ -30,17 +30,18 @@
   %h4 Add a review:
   = render 'reviews/add', :book => @book
 
-- if @book.reviews.any?
+- if @reviews.any?
   %h4 Reviews
   %table.table.table-nonfluid
     %tr
       %th Rating
       %th Member
-    - @book.reviews.each do |review|
+    - @reviews.each do |review|
       %tr
         %td= render 'shared/book_user_rated', :book => @book, :user => review.user, :score => @book.user_rating(review.user)
         %td= review.user.email
       %tr
         %td{:colspan => 2}
           = render 'reviews/show_or_edit', :review => review, :book => @book
+  = will_paginate @reviews
 
