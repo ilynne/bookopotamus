@@ -17,4 +17,4 @@
 /public/uploads/tmp
 
 # Ignore SimpleCov
-/coverage
+coverage/*
