@@ -48,9 +48,9 @@
               %li= link_to 'Add a book', new_book_path if current_user
           - if current_user.try(:admin?)
             .well.sidebar.nav
-              = render 'shared/impersonate_links'
+              = render 'users/form'
             .well.sidebar.nav
-              %p new admin form
+              = render 'shared/impersonate_links'
           - if current_user && current_user != true_user
             .well.sidebar.nav
               = render 'shared/true_user_links'

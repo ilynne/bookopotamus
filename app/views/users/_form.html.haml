@@ -1,16 +1,18 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
-
+= form_for User.new, url: users_admin_path do |f|
   %fieldset
-    %legend User
+    .nav-header Add user
     .field
       = f.label :email
-      = f.text_field :email
+      = f.email_field :email   
+    .field
+      = f.label :password
+      = f.password_field :password
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    .field
+      = f.label :admin
+      = f.check_box :admin
     
   .actions
-    = f.submit 'Save'
+    = f.submit 'Add'
