@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-23T15:47:49-07:00">2014-08-23T15:47:49-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-23T17:34:35-07:00">2014-08-23T17:34:35-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.42%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.77
+         2.88
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>43</b> files in total.
-    <b>503</b> relevant lines. 
-    <span class="green"><b>485</b> lines covered</span> and
-    <span class="red"><b>18</b> lines missed </span>
+    <b>499</b> relevant lines. 
+    <span class="green"><b>499</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#831fa8ea500dd9b2d393bbe31c9c581abb5d70bc" class="src_link" title="app/controllers/books_controller.rb">app/controllers/books_controller.rb</a></td>
-        <td class="red strong">73.91 %</td>
-        <td>129</td>
-        <td>69</td>
-        <td>51</td>
-        <td>18</td>
-        <td>3.5</td>
+        <td class="green strong">100.0 %</td>
+        <td>125</td>
+        <td>65</td>
+        <td>65</td>
+        <td>0</td>
+        <td>4.2</td>
       </tr>
       
       <tr>
@@ -147,7 +147,7 @@
         <td>30</td>
         <td>30</td>
         <td>0</td>
-        <td>8.8</td>
+        <td>9.2</td>
       </tr>
       
       <tr>
@@ -347,7 +347,7 @@
         <td>4</td>
         <td>4</td>
         <td>0</td>
-        <td>16.5</td>
+        <td>17.5</td>
       </tr>
       
       <tr>
@@ -357,7 +357,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>13.4</td>
+        <td>14.3</td>
       </tr>
       
       <tr>
@@ -387,7 +387,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>8.6</td>
+        <td>8.4</td>
       </tr>
       
       <tr>
@@ -467,7 +467,7 @@
         <td>11</td>
         <td>11</td>
         <td>0</td>
-        <td>2.7</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -553,11 +553,11 @@
         <div class="source_table" id="831fa8ea500dd9b2d393bbe31c9c581abb5d70bc">
   <div class="header">
     <h3>app/controllers/books_controller.rb</h3>
-    <h4><span class="red">73.91 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>69</b> relevant lines. 
-      <span class="green"><b>51</b> lines covered</span> and
-      <span class="red"><b>18</b> lines missed.</span>
+      <b>65</b> relevant lines. 
+      <span class="green"><b>65</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -618,8 +618,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="10">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="30" data-linenumber="10">
+          <span class="hits">30</span>
           
           <code class="ruby">    if current_user</code>
         </li>
@@ -636,8 +636,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="13">
+          <span class="hits">4</span>
           
           <code class="ruby">      @books = Book.approved</code>
         </li>
@@ -648,8 +648,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="15">
-          <span class="hits">28</span>
+        <li class="covered" data-hits="30" data-linenumber="15">
+          <span class="hits">30</span>
           
           <code class="ruby">    @books = find_books @books if params[:search]</code>
         </li>
@@ -1104,235 +1104,211 @@
           <code class="ruby">  def find_books books</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="91">
-          
+        <li class="covered" data-hits="2" data-linenumber="91">
+          <span class="hits">2</span>
           
           <code class="ruby">    book_ids = books.pluck(:id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="92">
+        <li class="covered" data-hits="2" data-linenumber="92">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    b = books.where(&#39;title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?&#39;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;)</code>
+          <code class="ruby">    info_ids = books.where(&#39;title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?&#39;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;).pluck(:id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="93">
+        <li class="covered" data-hits="2" data-linenumber="93">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    authors = Author.where(&#39;last_name LIKE ? OR first_name LIKE ?&#39;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;).pluck(:id)</code>
+          <code class="ruby">    author_ids = Author.where(&#39;last_name LIKE ? OR first_name LIKE ?&#39;, &quot;%#{params[:search]}%&quot;, &quot;%#{params[:search]}%&quot;).pluck(:id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="94">
-          
-          
-          <code class="ruby">    a = books.where(author_id: authors)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
+        <li class="covered" data-hits="2" data-linenumber="94">
+          <span class="hits">2</span>
           
           <code class="ruby">    reviews = Review.where(book_id: book_ids)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="96">
-          
+        <li class="covered" data-hits="2" data-linenumber="95">
+          <span class="hits">2</span>
           
           <code class="ruby">    review_book_ids = reviews.where(&#39;body LIKE ?&#39;, &quot;%#{params[:search]}%&quot;).pluck(:book_id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="97">
+        <li class="covered" data-hits="2" data-linenumber="96">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    r = books.where(id: review_book_ids)</code>
+          <code class="ruby">    rating_book_ids = find_by_average_rating books</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="98">
+        <li class="covered" data-hits="2" data-linenumber="97">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    rt = find_by_average_rating books</code>
+          <code class="ruby">    books.where(id: info_ids + author_ids + review_book_ids + rating_book_ids)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="99">
-          
-          
-          <code class="ruby">    b + a + r + rt</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="never" data-hits="" data-linenumber="99">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="102">
+        <li class="covered" data-hits="1" data-linenumber="100">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_average_rating books</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="103">
+        <li class="covered" data-hits="2" data-linenumber="101">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    rt = books.none</code>
+          <code class="ruby">    rating_ids = []</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="104">
-          
+        <li class="covered" data-hits="2" data-linenumber="102">
+          <span class="hits">2</span>
           
           <code class="ruby">    if params[:search].to_i &gt; 0 &amp;&amp; params[:search].to_i &lt;= 5</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="105">
-          
+        <li class="covered" data-hits="1" data-linenumber="103">
+          <span class="hits">1</span>
           
           <code class="ruby">      score = params[:search].to_i</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="106">
-          
-          
-          <code class="ruby">      rating_ids = []</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="107">
-          
+        <li class="covered" data-hits="1" data-linenumber="104">
+          <span class="hits">1</span>
           
           <code class="ruby">      books.each do |book|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="108">
+        <li class="covered" data-hits="1" data-linenumber="105">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        if book.average_rating &lt; score +1  &amp;&amp; book.average_rating &gt;= score</code>
+          <code class="ruby">        if book.average_rating &lt; score + 1  &amp;&amp; book.average_rating &gt;= score</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="109">
-          
+        <li class="covered" data-hits="1" data-linenumber="106">
+          <span class="hits">1</span>
           
           <code class="ruby">          rating_ids.push book.id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="107">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="108">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="112">
-          
-          
-          <code class="ruby">      rt = books.where(id: rating_ids)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="109">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="114">
+        <li class="covered" data-hits="2" data-linenumber="110">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    rt</code>
+          <code class="ruby">    rating_ids</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="111">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby">  # Never trust parameters from the scary internet, only allow the white list through.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="118">
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
           <code class="ruby">  def book_params</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="119">
+        <li class="covered" data-hits="6" data-linenumber="115">
           <span class="hits">6</span>
           
           <code class="ruby">    params[:book].permit(:title,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="116">
           
           
           <code class="ruby">                         :isbn_10,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="121">
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">                         :isbn_13,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="122">
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">                         :author_id,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="123">
+        <li class="never" data-hits="" data-linenumber="119">
           
           
           <code class="ruby">                         :score,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="124">
+        <li class="never" data-hits="" data-linenumber="120">
           
           
           <code class="ruby">                         :approved,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="125">
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">                         :cover,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="126">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">                         reviews_attributes: [:body, :user_id],</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="123">
           
           
           <code class="ruby">                         author_attributes: [:last_name, :first_name, :last_first])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="128">
+        <li class="never" data-hits="" data-linenumber="124">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="129">
+        <li class="never" data-hits="" data-linenumber="125">
           
           
           <code class="ruby">end</code>
@@ -2082,8 +2058,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="17">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="17">
+          <span class="hits">5</span>
           
           <code class="ruby">  scope :approved, -&gt; { where(approved: true) }</code>
         </li>
@@ -2100,8 +2076,8 @@
           <code class="ruby">  def average_rating</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="20">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="23" data-linenumber="20">
+          <span class="hits">23</span>
           
           <code class="ruby">    ratings.sum(:score).to_f / ratings.size.to_f</code>
         </li>
@@ -2178,14 +2154,14 @@
           <code class="ruby">  def autosave_associated_records_for_author</code>
         </li>
       
-        <li class="covered" data-hits="41" data-linenumber="33">
-          <span class="hits">41</span>
+        <li class="covered" data-hits="45" data-linenumber="33">
+          <span class="hits">45</span>
           
           <code class="ruby">    if new_author = Author.find_by(last_name: author.last_name, first_name: author.first_name)</code>
         </li>
       
-        <li class="covered" data-hits="40" data-linenumber="34">
-          <span class="hits">40</span>
+        <li class="covered" data-hits="44" data-linenumber="34">
+          <span class="hits">44</span>
           
           <code class="ruby">      self.author = new_author</code>
         </li>
@@ -6864,14 +6840,14 @@
           <code class="ruby">  factory :author do</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="5">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="34" data-linenumber="5">
+          <span class="hits">34</span>
           
           <code class="ruby">    sequence(:last_name) { |n| &quot;Prefect#{n}&quot;  }</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="6">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="34" data-linenumber="6">
+          <span class="hits">34</span>
           
           <code class="ruby">    sequence(:first_name) { |n| &quot;Ford#{n}&quot;  }</code>
         </li>
@@ -6930,20 +6906,20 @@
           <code class="ruby">  factory :book do</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="5">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="32" data-linenumber="5">
+          <span class="hits">32</span>
           
           <code class="ruby">    sequence(:title) { |n| &quot;Book Title #{n} from Factory&quot; }</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="6">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="32" data-linenumber="6">
+          <span class="hits">32</span>
           
           <code class="ruby">    sequence(:isbn_10) { |n| n + 1_234_657_890 }</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="7">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="32" data-linenumber="7">
+          <span class="hits">32</span>
           
           <code class="ruby">    sequence(:isbn_13) { |n| &quot;123-#{n + 1_234_657_890}&quot; }</code>
         </li>
@@ -7158,8 +7134,8 @@
           <code class="ruby">  factory :user do</code>
         </li>
       
-        <li class="covered" data-hits="54" data-linenumber="5">
-          <span class="hits">54</span>
+        <li class="covered" data-hits="53" data-linenumber="5">
+          <span class="hits">53</span>
           
           <code class="ruby">    sequence(:email) { |n| &quot;arthur_dent#{n}@example.org&quot;  } </code>
         </li>
@@ -9708,26 +9684,26 @@
           <code class="ruby">  def login_admin</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="3">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
           
           <code class="ruby">    before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="4">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
           
           <code class="ruby">      @request.env[&quot;devise.mapping&quot;] = Devise.mappings[:admin]</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="5">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="3" data-linenumber="5">
+          <span class="hits">3</span>
           
           <code class="ruby">      admin = FactoryGirl.create(:admin)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="6">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
           
           <code class="ruby">      sign_in admin</code>
         </li>

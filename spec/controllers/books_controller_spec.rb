@@ -2,11 +2,28 @@ require 'spec_helper'
 
 describe BooksController do
   DatabaseCleaner.clean_with(:truncation)
-  login_admin
+  # login_admin
   let(:admin) { FactoryGirl.create(:admin) }
   let(:user) { FactoryGirl.create(:user) }
   let(:book) { FactoryGirl.create(:book) }
   # let(:authed_user) { create_logged_in_user }
+
+  describe 'finding books' do
+    it 'should find a book by text' do
+      saved_book = FactoryGirl.create(:book, approved: true)
+      saved_book.save
+      get :index, search: 'book'
+      assigns(:books).should eq([saved_book])
+    end
+    it 'should find a book by rating' do
+      saved_book = FactoryGirl.create(:book, approved: true)
+      rating = FactoryGirl.create(:rating, book: saved_book, score: 4)
+      rating.save
+      saved_book.save
+      get :index, search: 4
+      assigns(:books).should eq([saved_book])
+    end
+  end
 
   describe 'logged in as admin' do
     login_admin
@@ -21,7 +38,6 @@ describe BooksController do
     describe 'DELETE destroy' do
       it 'redirects to the books list' do
         book.save
-        puts book.inspect
         delete :destroy, id: book.to_param
         response.should redirect_to(books_url)
       end
