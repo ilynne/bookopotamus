@@ -48,6 +48,7 @@ Book.last(45).each do |b|
     ratings = (1..5).to_a
     rating = Rating.create!(score: ratings.sample, user: u, book: b)
   end
+  b.average_rating
 end
 
 Review.delete_all
