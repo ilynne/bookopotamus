@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Success!'
       flash[:notice] = 'Admin was added.'
+      Notification.welcome_email(@user).deliver
     else
       flash[:error] = 'There was a problem creating the admin.'
     end
@@ -48,9 +49,10 @@ class UsersController < ApplicationController
     if params[:user][:admin].present? && params[:user][:admin] == '1'
       options[:admin] = true
     end
-    if Notification.member_invite(options).deliver
+    begin
+      Notification.member_invite(options).deliver
       flash[:success] = 'Member invited!'
-    else
+    rescue
       flash[:error] = 'Something went wrong!'
     end
     redirect_to root_path

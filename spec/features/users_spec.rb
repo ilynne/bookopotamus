@@ -83,21 +83,6 @@ describe 'Users' do
           expect(page.body).to_not include('are signed in as')
         end
 
-        # it 'allows the admin to restrict a user', :js => true do
-        #   visit new_user_session_path
-        #   fill_in 'Email', with: admin.email
-        #   fill_in 'Password', with: admin.password
-        #   click_button 'Sign in'
-        #   non_admin = FactoryGirl.create(:user)
-        #   non_admin.save
-        #   visit users_path
-        #   sleep(5)
-        #   check "user_#{non_admin.id}_restricted"
-        #   visit users_path
-        #   non_admin.reload
-        #   expect(non_admin.restricted).to eq(true)
-        # end
-
         it 'lists the users' do
           visit users_path
           expect(page.body).to include(User.all.count.to_s)
@@ -126,6 +111,20 @@ describe 'Users' do
           check 'user_admin'
           click_button 'Add'
           expect(page.body).to include('There was a problem')
+        end
+
+        it 'allows an admin to invite an admin' do
+          visit root_path
+          fill_in 'invite_email', with: 'newadmin@example.com'
+          check 'invite_admin'
+          click_button 'Invite'
+          expect(page.body).to include('Member invited')
+        end
+        it 'fails if no email is provided' do
+          visit root_path
+          fill_in 'invite_email', with: ''
+          click_button 'Invite'
+          expect(page.body).to include('wrong')
         end
       end
       describe 'as a non admin' do
