@@ -88,13 +88,25 @@ class BooksController < ApplicationController
   end
 
   def find_books books
-    book_ids = books.pluck(:id)
+    i = find_info_ids books
+    a = find_author_ids books
+    r = find_review_ids books
+    rating_book_ids = find_by_average_rating books
+    books.where(id: i + a + r + rating_book_ids)
+  end
+
+  def find_info_ids books
     info_ids = books.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
+  end
+
+  def find_author_ids books
     author_ids = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
+  end
+
+  def find_review_ids books
+    book_ids = books.pluck(:id)
     reviews = Review.where(book_id: book_ids)
     review_book_ids = reviews.where('body LIKE ?', "%#{params[:search]}%").pluck(:book_id)
-    rating_book_ids = find_by_average_rating books
-    books.where(id: info_ids + author_ids + review_book_ids + rating_book_ids)
   end
 
   def find_by_average_rating books
