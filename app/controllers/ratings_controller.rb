@@ -2,6 +2,7 @@ class RatingsController < ApplicationController
   before_filter only: [:new] do
     redirect_to :new_user_session unless current_user
   end
+  before_action :validate_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
   end
@@ -25,6 +26,12 @@ class RatingsController < ApplicationController
         format.json { render json: book.average_rating, status: :created }
       end
     end
+  end
+
+  private
+
+  def validate_user
+    redirect_to books_url if current_user.restricted?
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

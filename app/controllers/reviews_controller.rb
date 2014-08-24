@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :validate_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @reviews = Review.all.paginate(:page => params[:page], :per_page => 10)
@@ -32,6 +33,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def validate_user
+    redirect_to books_url if current_user.restricted?
+  end
 
   def review_params
     params[:review].permit(:body, :user_id, :book_id)

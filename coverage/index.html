@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-23T22:53:05-07:00">2014-08-23T22:53:05-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-08-24T00:04:11-07:00">2014-08-24T00:04:11-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.96
+         2.95
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>44</b> files in total.
-    <b>569</b> relevant lines. 
-    <span class="green"><b>569</b> lines covered</span> and
+    <b>572</b> relevant lines. 
+    <span class="green"><b>572</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -323,9 +323,9 @@
       <tr>
         <td class="strong"><a href="#02096b0d4c0ac9385cd2bbd4730379c2b5a780d8" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>71</td>
-        <td>10</td>
-        <td>10</td>
+        <td>74</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -333,9 +333,9 @@
       <tr>
         <td class="strong"><a href="#c6cacf0be148efae8c24a2c320d4fa04b3321184" class="src_link" title="db/schema.rb">db/schema.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>72</td>
-        <td>46</td>
-        <td>46</td>
+        <td>73</td>
+        <td>47</td>
+        <td>47</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -5623,8 +5623,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>10</b> relevant lines. 
-      <span class="green"><b>10</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5656,16 +5656,16 @@
           <code class="ruby">  get &#39;users/stop_impersonating&#39; =&gt; &#39;users#stop_impersonating&#39;, as: :stop_impersonating</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  get &#39;users&#39; =&gt; &#39;users#index&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  get &#39;ratings/index&#39;</code>
+          <code class="ruby">  patch &#39;users/:id&#39; =&gt; &#39;users#update&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -5677,67 +5677,67 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  devise_for :users</code>
+          <code class="ruby">  get &#39;ratings/index&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="9">
           
-          <code class="ruby">  resources :books do</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    resources :ratings, only: [:update, :new]</code>
+          <code class="ruby">  devise_for :users</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :reviews</code>
+          <code class="ruby">  resources :books do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  resources :authors</code>
+          <code class="ruby">    resources :ratings, only: [:update, :new]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  root &#39;books#index&#39;</code>
+          <code class="ruby">  resources :reviews</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  resources :authors</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">  # The priority is based upon order of creation: first created -&gt; highest priority.</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # See how all your routes lay out with &quot;rake routes&quot;.</code>
+          <code class="ruby">  root &#39;books#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -5749,13 +5749,13 @@
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">  # You can have the root of your site routed with &quot;root&quot;</code>
+          <code class="ruby">  # The priority is based upon order of creation: first created -&gt; highest priority.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">  # root &#39;welcome#index&#39;</code>
+          <code class="ruby">  # See how all your routes lay out with &quot;rake routes&quot;.</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
@@ -5767,13 +5767,13 @@
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">  # Example of regular route:</code>
+          <code class="ruby">  # You can have the root of your site routed with &quot;root&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">  #   get &#39;products/:id&#39; =&gt; &#39;catalog#view&#39;</code>
+          <code class="ruby">  # root &#39;welcome#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
@@ -5785,13 +5785,13 @@
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">  # Example of named route that can be invoked with purchase_url(id: product.id)</code>
+          <code class="ruby">  # Example of regular route:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">  #   get &#39;products/:id/purchase&#39; =&gt; &#39;catalog#purchase&#39;, as: :purchase</code>
+          <code class="ruby">  #   get &#39;products/:id&#39; =&gt; &#39;catalog#view&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -5803,13 +5803,13 @@
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">  # Example resource route (maps HTTP verbs to controller actions automatically):</code>
+          <code class="ruby">  # Example of named route that can be invoked with purchase_url(id: product.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">  #   resources :products</code>
+          <code class="ruby">  #   get &#39;products/:id/purchase&#39; =&gt; &#39;catalog#purchase&#39;, as: :purchase</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
@@ -5821,238 +5821,256 @@
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">  # Example resource route with options:</code>
+          <code class="ruby">  # Example resource route (maps HTTP verbs to controller actions automatically):</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby">  #   resources :products</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">  #     member do</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">  #       get &#39;short&#39;</code>
+          <code class="ruby">  # Example resource route with options:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">  #       post &#39;toggle&#39;</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  #     member do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby">  #       get &#39;short&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">  #     collection do</code>
+          <code class="ruby">  #       post &#39;toggle&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">  #       get &#39;sold&#39;</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #     collection do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #       get &#39;sold&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">  # Example resource route with sub-resources:</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">  #     resources :comments, :sales</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">  #     resource :seller</code>
+          <code class="ruby">  # Example resource route with sub-resources:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #     resources :comments, :sales</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">  # Example resource route with more complex sub-resources:</code>
+          <code class="ruby">  #     resource :seller</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">  #   resources :products do</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
           
           
-          <code class="ruby">  #     resources :comments</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="53">
           
           
-          <code class="ruby">  #     resources :sales do</code>
+          <code class="ruby">  # Example resource route with more complex sub-resources:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">  #       get &#39;recent&#39;, on: :collection</code>
+          <code class="ruby">  #   resources :products do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">  #     end</code>
+          <code class="ruby">  #     resources :comments</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #     resources :sales do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #       get &#39;recent&#39;, on: :collection</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby">  # Example resource route with concerns:</code>
+          <code class="ruby">  #     end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">  #   concern :toggleable do</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">  #     post &#39;toggle&#39;</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  # Example resource route with concerns:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby">  #   resources :posts, concerns: :toggleable</code>
+          <code class="ruby">  #   concern :toggleable do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
-          <code class="ruby">  #   resources :photos, concerns: :toggleable</code>
+          <code class="ruby">  #     post &#39;toggle&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="65">
           
           
-          <code class="ruby">  # Example resource route within a namespace:</code>
+          <code class="ruby">  #   resources :posts, concerns: :toggleable</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby">  #   namespace :admin do</code>
+          <code class="ruby">  #   resources :photos, concerns: :toggleable</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">  #     # Directs /admin/products/* to Admin::ProductsController</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">  #     # (app/controllers/admin/products_controller.rb)</code>
+          <code class="ruby">  # Example resource route within a namespace:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby">  #     resources :products</code>
+          <code class="ruby">  #   namespace :admin do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">  #   end</code>
+          <code class="ruby">  #     # Directs /admin/products/* to Admin::ProductsController</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby">  #     # (app/controllers/admin/products_controller.rb)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">  #     resources :products</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">  #   end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">end</code>
@@ -6067,8 +6085,8 @@
     <h3>db/schema.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>46</b> relevant lines. 
-      <span class="green"><b>46</b> lines covered</span> and
+      <b>47</b> relevant lines. 
+      <span class="green"><b>47</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6157,7 +6175,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">ActiveRecord::Schema.define(version: 20140824050251) do</code>
+          <code class="ruby">ActiveRecord::Schema.define(version: 20140824062944) do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
@@ -6472,37 +6490,43 @@
           <code class="ruby">    t.boolean  &quot;admin&quot;,                  default: false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    t.boolean  &quot;restricted&quot;,             default: false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="69">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="69">
           
-          <code class="ruby">  add_index &quot;users&quot;, [&quot;email&quot;], name: &quot;index_users_on_email&quot;, unique: true, using: :btree</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
+          <code class="ruby">  add_index &quot;users&quot;, [&quot;email&quot;], name: &quot;index_users_on_email&quot;, unique: true, using: :btree</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
           <code class="ruby">  add_index &quot;users&quot;, [&quot;reset_password_token&quot;], name: &quot;index_users_on_reset_password_token&quot;, unique: true, using: :btree</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">end</code>
