@@ -1,7 +1,7 @@
 %h1 Books
 
 - if @books.count > 0
-  %h3= "#{@books.count} books found:" 
+  %h3= "#{pluralize(@books.count, 'book')} found:" 
   %table.table
     %tr
       - if current_user.try(:admin?)

@@ -73,6 +73,12 @@ class BooksController < ApplicationController
     redirect_to books_url, notice: "Book was successfully #{action}."
   end
 
+  def user
+    @user = User.find(params[:user_id])
+    @books = @user.books.where('approved = ?', true).paginate(:page => params[:page])
+    render template: 'books/index'
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

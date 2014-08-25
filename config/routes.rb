@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post 'users/admin' => 'users#create'
   post 'users/invite' => 'users#invite'
   get 'ratings/index'
+  get 'books/users/:user_id' => 'books#user', as: :books_user
 
   devise_for :users
 

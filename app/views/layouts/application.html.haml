@@ -30,6 +30,7 @@
           .container.nav-collapse
             %ul.nav
               %li= link_to 'Books', books_path
+              %li= link_to 'My books', books_user_path(current_user) if current_user
               %li= link_to 'Add a book', new_book_path if current_user
               %li= link_to 'Users', users_path if current_user.try(:admin?)
             %ul.nav.pull-right
