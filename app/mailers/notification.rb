@@ -13,4 +13,9 @@ class Notification < ActionMailer::Base
     @admin = true if options[:admin].present?
     mail(:to => @to, :from => @from, subject: 'An invitation to Bookopotamus', :locals => { :options =>  @options })
   end
+
+  def book_reviewed(book, options = {})
+    @book = book
+    mail(to: 'queen@ilynne.com', subject: 'test', :locals => { book: @book })
+  end
 end
