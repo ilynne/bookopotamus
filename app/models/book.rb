@@ -14,6 +14,7 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :reviews, reject_if: proc { |attributes| attributes['body'].blank? }
   accepts_nested_attributes_for :ratings, reject_if: proc { |attributes| attributes['score'].blank? }
   accepts_nested_attributes_for :author, reject_if: proc { |attributes| attributes['last_first'].blank? }
+  accepts_nested_attributes_for :follows
 
   scope :approved, -> { where(approved: true) }
 

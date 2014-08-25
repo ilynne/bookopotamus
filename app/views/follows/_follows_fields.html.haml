@@ -1,0 +1,8 @@
+%fieldset
+  .field
+    = f.label :ratings
+    = f.check_box :rating
+  .field
+    = f.label :reviews
+    = f.check_box :review
+  = f.hidden_field :user_id, value: current_user.id

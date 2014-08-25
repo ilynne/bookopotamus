@@ -30,6 +30,7 @@ class BooksController < ApplicationController
     @book.reviews.build(user: current_user, body: 'good')
     @book.ratings.build(user: current_user, score: 0)
     @book.build_author
+    @book.follows.build(user_id: current_user.id, rating: true, review: true)
   end
 
   # GET /books/1/edit
@@ -41,7 +42,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user = current_user
     rating = @book.ratings.build(user: current_user, score: params[:score]) if params[:score].present?
-    @follow = Follow.create(user: current_user, book: @book, rating: true, review: true)
+    # @follow = Follow.create(user: current_user, book: @book, rating: true, review: true)
     if @book.save
       rating.save if rating.present?
       redirect_to @book, notice: 'Book was successfully created.'
@@ -160,6 +161,7 @@ class BooksController < ApplicationController
                          :approved,
                          :cover,
                          reviews_attributes: [:body, :user_id],
-                         author_attributes: [:last_name, :first_name, :last_first])
+                         author_attributes: [:last_name, :first_name, :last_first],
+                         follows_attributes: [:user_id, :review, :rating])
   end
 end

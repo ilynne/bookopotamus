@@ -33,6 +33,11 @@
       = render 'shared/book_user_rating', :book => @book
     - else
       = render 'shared/book_user_rated', :book => @book, :user => current_user, :score => @book.user_rating(current_user)
+  %fieldset
+    %legend Follow
+    = f.fields_for :follows do |follows_form|
+      = render 'follows/follows_fields', :f => follows_form
+
     
   .actions
     = f.submit 'Save'
