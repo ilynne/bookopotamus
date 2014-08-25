@@ -54,6 +54,14 @@ describe 'Books' do
         visit books_user_path user_book.user.id
         expect(page.body).to have_text(user_book.title)
       end
+      it 'should show another users books' do
+        new_user = FactoryGirl.create(:user)
+        user_book = FactoryGirl.create(:book, user: new_user, approved: true)
+        user_book.save
+        # puts user_book.user.books.inspect
+        visit books_user_path user_book.user.id
+        expect(page.body).to have_text(user_book.title)
+      end
     end
     describe 'Editing a book' do
       describe 'with valid parameters' do
