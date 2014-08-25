@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @book = Book.new(user: current_user)
     @book.reviews.build(user: current_user, body: 'good')
     @book.ratings.build(user: current_user, score: 0)
     @book.build_author
@@ -40,9 +40,7 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.new(book_params)
-    @book.user = current_user
     rating = @book.ratings.build(user: current_user, score: params[:score]) if params[:score].present?
-    # @follow = Follow.create(user: current_user, book: @book, rating: true, review: true)
     if @book.save
       rating.save if rating.present?
       redirect_to @book, notice: 'Book was successfully created.'
@@ -112,9 +110,7 @@ class BooksController < ApplicationController
     a = find_author_ids
     r = find_review_ids books
     rating_book_ids = []
-    if params[:search].to_i > 0 && params[:search].to_i <= 5
-      rating_book_ids = find_by_average_rating books
-    end
+    rating_book_ids = find_by_average_rating books
     books.where(id: i + a + r + rating_book_ids)
   end
 
@@ -133,14 +129,8 @@ class BooksController < ApplicationController
   end
 
   def find_by_average_rating books
-    rating_ids = []
     score = params[:search].to_i
-    books.each do |book|
-      if book.average_rating < score + 1  && book.average_rating >= score
-        rating_ids.push book.id
-      end
-    end
-    rating_ids
+    Book.where('saved_rating < ? && saved_rating >= ?', score + 1, score).pluck(:id)
   end
 
   def sort_column
