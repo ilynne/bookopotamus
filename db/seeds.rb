@@ -44,7 +44,7 @@ rating.save
 rating = Rating.new(score: 3, user: User.last, book: Book.last)
 rating.save
 Book.last(45).each do |b|
-  User.last(15).each do |u|
+  User.first(15).each do |u|
     ratings = (1..5).to_a
     rating = Rating.create!(score: ratings.sample, user: u, book: b)
   end
@@ -62,10 +62,16 @@ review = Review.new(body: 'This book is also terrible.', user: User.last, book: 
 review.save
 
 Book.last(35).each do |b|
-  User.last(15).each do |u|
+  User.first(15).each do |u|
     review_prefix = ['I thought this book was', 'This book is']
     reviews = [:great, :average, :terrible, :funny]
     review = Review.create!(body: "#{review_prefix.sample} #{reviews.sample}.", user: u, book: b)
   end
 end
 
+Book.last(35).each do |b|
+  User.first(15).each do |u|
+    follow = Follow.create!(user: u, book: b, rating: [true, false].sample, review: [true, false].sample)
+    follow.save
+  end
+end

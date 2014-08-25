@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   has_many :ratings
   has_many :reviews
+  has_many :follows
   belongs_to :user
   belongs_to :author, :autosave => true
   mount_uploader :cover, CoverUploader

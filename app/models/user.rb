@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :ratings
   has_many :books
-  
+  has_many :follows
 end
