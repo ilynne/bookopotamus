@@ -1,12 +1,13 @@
 %h1 Books
 
 - if @books.count > 0
-  %h3= "#{pluralize(@books.count, 'book')} found:" 
+  %h2= "#{pluralize(@books.count, 'book')} found" 
+  %h2
+    %small= @user.email if @user
   %table.table
     %tr
-      - if current_user.try(:admin?)
-        %th 
-          %i.icon-ok
+      %th 
+        %i.icon-ok
       %th
       %th= sortable 'isbn_10'
       %th= sortable 'isbn_13'
@@ -20,6 +21,8 @@
       %tr
         - if current_user.try(:admin?) && book.approvable?
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, class: 'approved', data: { book_id: book.id, url: books_path, method: 'PATCH' }
+        - else
+          %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, disabled: true
         %td
           = link_to book_path book do
             = image_tag book.cover_url(:thumb).to_s

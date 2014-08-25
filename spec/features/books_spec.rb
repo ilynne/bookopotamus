@@ -47,6 +47,13 @@ describe 'Books' do
         # click_link 'destroy'
         expect { click_link 'Delete' } .to change { Book.count }.by(-1)
       end
+      it 'should show the user books' do
+        user_book = FactoryGirl.create(:book, user: user, approved: true)
+        user_book.save
+        # puts user_book.user.books.inspect
+        visit books_user_path user_book.user.id
+        expect(page.body).to have_text(user_book.title)
+      end
     end
     describe 'Editing a book' do
       describe 'with valid parameters' do

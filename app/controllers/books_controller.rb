@@ -75,7 +75,11 @@ class BooksController < ApplicationController
 
   def user
     @user = User.find(params[:user_id])
-    @books = @user.books.where('approved = ?', true).paginate(:page => params[:page])
+    if @user == current_user
+      @books = @user.books.paginate(:page => params[:page])
+    else
+      @books = @user.books.where('approved = ?', true).paginate(:page => params[:page])
+    end
     render template: 'books/index'
   end
 
