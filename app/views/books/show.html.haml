@@ -11,7 +11,14 @@
 
 %h4= author_last_first(@book.author)
 
-= image_tag @book.cover_url(:medium).to_s
+.row-fluid
+  .span9
+    .span5
+      = image_tag @book.cover_url(:medium).to_s
+    .span4
+      %following 
+        - if current_user && @book.followed_by_user?(current_user)
+          %p You are following this book.
 
 %table.table.table-nonfluid
   %tr

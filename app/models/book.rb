@@ -46,9 +46,9 @@ class Book < ActiveRecord::Base
     end
   end
 
-  # def self.user_books(user)
-  #   find_by user_id: user.id
-  # end
+  def followed_by_user?(user)
+    follows.where(user_id: user).present?
+  end
 
   def self.user_book_index(user)
     where("user_id = ? OR approved = ?", user.id, 1)

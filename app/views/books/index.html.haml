@@ -8,6 +8,9 @@
     %tr
       %th 
         %i.icon-ok
+      - if current_user
+        %th 
+          %i.icon-eye-open
       %th
       %th= sortable 'isbn_10'
       %th= sortable 'isbn_13'
@@ -23,6 +26,8 @@
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, class: 'approved', data: { book_id: book.id, url: books_path, method: 'PATCH' }
         - else
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, disabled: true
+        - if current_user
+          %td= check_box_tag "book_#{book.id}_approved", 1, book.followed_by_user?(current_user)
         %td
           = link_to book_path book do
             = image_tag book.cover_url(:thumb).to_s
