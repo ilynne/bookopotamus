@@ -41,11 +41,12 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user = current_user
     rating = @book.ratings.build(user: current_user, score: params[:score]) if params[:score].present?
+    @follow = Follow.create(user: current_user, book: @book, rating: true, review: true)
     if @book.save
       rating.save if rating.present?
       redirect_to @book, notice: 'Book was successfully created.'
     else
-      render :new
+      render :new, notice: 'There was a problem.'
     end
   end
 

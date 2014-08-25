@@ -707,6 +707,7 @@
         4,
         4,
         4,
+        4,
         3,
         3,
         null,
@@ -1738,8 +1739,8 @@
         null,
         null,
         1,
-        52,
-        51,
+        55,
+        54,
         null,
         null,
         null,
@@ -1846,7 +1847,7 @@
         1,
         null,
         1,
-        2,
+        6,
         1,
         null,
         null,
@@ -1905,17 +1906,17 @@
         null,
         null
       ],
-      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/rating.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
       "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/review.rb": [
         1,
         1,
         1,
         null,
+        1,
+        null
+      ],
+      "/Users/lynne/UW/Q3/Summer310Code/final/bookopotamus/app/models/rating.rb": [
+        1,
+        1,
         1,
         null
       ],
@@ -1984,6 +1985,6 @@
         null
       ]
     },
-    "timestamp": 1408942979
+    "timestamp": 1408943801
   }
 }
