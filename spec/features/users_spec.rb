@@ -124,7 +124,7 @@ describe 'Users' do
           visit root_path
           fill_in 'invite_email', with: ''
           click_button 'Invite'
-          expect(page.body).to include('wrong')
+          expect(page.body).to include('You must enter an email')
         end
       end
       describe 'as a non admin' do

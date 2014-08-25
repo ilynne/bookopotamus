@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter only: [:index, :impersonate] do
     redirect_to root_path unless current_user.try(:admin?)
   end
+  before_action :check_email, only: [:invite]
 
   def index
     @users = User.all.paginate(:page => params[:page])
@@ -49,17 +50,19 @@ class UsersController < ApplicationController
     if params[:user][:admin].present? && params[:user][:admin] == '1'
       options[:admin] = true
     end
-    begin
-      Notification.member_invite(options).deliver
-      flash[:success] = 'Member invited!'
-    rescue
-      flash[:error] = 'Something went wrong!'
-    end
+    Notification.member_invite(options).deliver
+    flash[:success] = 'Member invited!'
     redirect_to root_path
   end
 
   private
 
+  def check_email
+    if params[:user][:email].blank?
+      redirect_to root_path, notice: 'You must enter an email address.'
+    end
+  end
+    
   def set_user
     begin
       @user = User.find(params[:id])
