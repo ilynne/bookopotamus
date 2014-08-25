@@ -1,5 +1,1 @@
-= "Your book #{@book.title} was just reviewed!"
-
-Check it out at:
-= book_url(@book.id)
-for more information!
+= "#{@book.title} was just #{@action}! Visit #{book_url(@book.id)} for more information!"

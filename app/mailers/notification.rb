@@ -15,7 +15,10 @@ class Notification < ActionMailer::Base
   end
 
   def book_reviewed(book, options = {})
+    @action = options[:action]
+    to = options[:to]
+    subject = options[:subject]
     @book = book
-    mail(to: 'queen@ilynne.com', subject: 'test', :locals => { book: @book })
+    mail(to: to, subject: subject, :locals => { book: @book, action: @action })
   end
 end
