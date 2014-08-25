@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %h1
   =@book.title
   %small
@@ -20,6 +18,9 @@
         - if current_user && @book.followed_by_user?(current_user)
           %h5 You are following this book.
           = render 'follows/form', :follow => @follow
+        - else
+          %h5 Follow this book
+          = render 'follows/form_new', :book => @book
 
 %table.table.table-nonfluid
   %tr

@@ -21,7 +21,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @reviews = @book.reviews.paginate(:page => params[:page])
-    @follow = @book.follows.where(user_id: current_user).first if current_user
+    set_follow if current_user
   end
 
   # GET /books/new
@@ -93,6 +93,10 @@ class BooksController < ApplicationController
     rescue
       redirect_to books_path
     end
+  end
+
+  def set_follow
+    @follow = @book.follows.where(user_id: current_user).first
   end
 
   def validate_user

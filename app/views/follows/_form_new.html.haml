@@ -1,0 +1,13 @@
+= form_for Follow.new, url: follows_path do |f|
+  %fieldset
+    .field
+      = f.label :ratings
+      = f.check_box :rating
+    .field
+      = f.label :reviews
+      = f.check_box :review
+    = f.hidden_field :book_id, value: @book.id
+    = f.hidden_field :user_id, value: current_user.id
+
+  .actions
+    = f.submit 'Follow'

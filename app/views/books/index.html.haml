@@ -27,7 +27,7 @@
         - else
           %td= check_box_tag "book_#{book.id}_approved", 1, book.approved?, disabled: true
         - if current_user
-          %td= check_box_tag "book_#{book.id}_approved", 1, book.followed_by_user?(current_user)
+          %td= check_box_tag "book_#{book.id}_followed", 1, book.followed_by_user?(current_user), class: 'followed', data: { book_id: book.id, user_id: current_user.id, url: follows_path, method: 'POST' }
         %td
           = link_to book_path book do
             = image_tag book.cover_url(:thumb).to_s

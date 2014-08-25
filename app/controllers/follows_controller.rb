@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+  before_action :set_follow, only: [:update, :destroy]
   before_filter only: [:new] do
     redirect_to :new_user_session unless current_user
   end
@@ -6,11 +7,13 @@ class FollowsController < ApplicationController
   def index
   end
 
-  # GET /books/id/follows/new
-  def new
-    @book = Book.find(params[:book_id])
-    @rating = follow.find_or_create_by(user: current_user, book: @book)
-    update_follow(@rating, @book)
+  def create
+    @follow = Follow.new(follow_params)
+    if @follow.save
+      redirect_to @follow.book, notice: 'Follow preferences updated.'
+    else
+      redirect_to books, notice: 'Your preferences could not be updated.'
+    end
   end
 
   def update
@@ -23,10 +26,21 @@ class FollowsController < ApplicationController
     end
   end
 
+  def destroy
+    @follow.destroy
+    render json: {}, status: :no_content
+  end
   private
 
+  def set_follow
+    begin
+      @follow = Follow.find(params[:id])
+    rescue
+      redirect_to books_path
+    end
+  end
   # Never trust parameters from the scary internet, only allow the white list through.
   def follow_params
-    params[:follow].permit(:rating, :review, :book_id, :user_id,)
+    params[:follow].permit(:rating, :review, :book_id, :user_id)
   end
 end
