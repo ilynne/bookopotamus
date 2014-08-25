@@ -1,0 +1,48 @@
+class EmailPredsController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to users_path, notice: 'User privileges changed.' }
+        format.json { render :show, status: :ok }
+      else
+        format.html { redirect_to users_path, error: 'That update was declined.' }
+        format.json {}
+      end
+    end
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = 'Success!'
+      flash[:notice] = 'Admin was added.'
+      Notification.welcome_email(@user).deliver
+    else
+      flash[:error] = 'There was a problem creating the admin.'
+    end
+    # flash.keep
+    redirect_to root_path
+  end
+
+  private
+
+  def check_email
+    if params[:user][:email].blank?
+      redirect_to root_path, notice: 'You must enter an email address.'
+    end
+  end
+    
+  def set_user
+    begin
+      @user = User.find(params[:id])
+    rescue
+      redirect_to root_path
+    end
+  end
+
+  def email_prefs_params
+    params[:user].permit(:user_id, :all_ratings, :all_reviews, :digest)
+  end
+end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :email]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter only: [:index, :impersonate] do
     redirect_to root_path unless current_user.try(:admin?)
   end
@@ -53,9 +53,6 @@ class UsersController < ApplicationController
     Notification.member_invite(options).deliver
     flash[:success] = 'Member invited!'
     redirect_to root_path
-  end
-
-  def email
   end
 
   private

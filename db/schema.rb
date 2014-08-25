@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825062718) do
+ActiveRecord::Schema.define(version: 20140825085045) do
 
   create_table "authors", force: true do |t|
     t.string   "last_name"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20140825062718) do
     t.integer  "author_id"
     t.boolean  "active",                  default: true
     t.float    "saved_rating", limit: 24
+  end
+
+  create_table "email_prefs", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "all_ratings"
+    t.boolean  "all_reviews"
+    t.boolean  "digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follows", force: true do |t|
