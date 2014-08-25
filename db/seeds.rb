@@ -71,7 +71,7 @@ end
 
 Follow.delete_all
 Book.last(15).each do |b|
-  User.first(15).each do |u|
+  User.first(3).each do |u|
     follow = Follow.create!(user: u, book: b, rating: [true, false].sample, review: true)
     follow.save
   end
