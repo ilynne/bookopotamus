@@ -107,9 +107,12 @@ class BooksController < ApplicationController
 
   def find_books books
     i = find_info_ids books
-    a = find_author_ids books
+    a = find_author_ids
     r = find_review_ids books
-    rating_book_ids = find_by_average_rating books
+    rating_book_ids = []
+    if params[:search].to_i > 0 && params[:search].to_i <= 5
+      rating_book_ids = find_by_average_rating books
+    end
     books.where(id: i + a + r + rating_book_ids)
   end
 
@@ -117,7 +120,7 @@ class BooksController < ApplicationController
     info_ids = books.where('title LIKE ? OR isbn_10 LIKE ? OR isbn_13 LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
   end
 
-  def find_author_ids books
+  def find_author_ids
     author_ids = Author.where('last_name LIKE ? OR first_name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%").pluck(:id)
   end
 
@@ -129,12 +132,10 @@ class BooksController < ApplicationController
 
   def find_by_average_rating books
     rating_ids = []
-    if params[:search].to_i > 0 && params[:search].to_i <= 5
-      score = params[:search].to_i
-      books.each do |book|
-        if book.average_rating < score + 1  && book.average_rating >= score
-          rating_ids.push book.id
-        end
+    score = params[:search].to_i
+    books.each do |book|
+      if book.average_rating < score + 1  && book.average_rating >= score
+        rating_ids.push book.id
       end
     end
     rating_ids
