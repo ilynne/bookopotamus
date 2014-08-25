@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
   post 'users/admin' => 'users#create'
   post 'users/invite' => 'users#invite'
-  get 'emailprefs/:id' => 'email_prefs#show', as: :email
-  post 'emailprefs/:id' => 'email_prefs#update', as: :email_settings
+  get 'email_prefs/:id' => 'email_prefs#show', as: :email
+  post 'email_prefs/:id' => 'email_prefs#update', as: :email_pref
   get 'ratings/index'
   get 'books/users/:user_id' => 'books#user', as: :books_user
 

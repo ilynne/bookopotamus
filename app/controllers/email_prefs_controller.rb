@@ -1,5 +1,5 @@
-class EmailPredsController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+class EmailPrefsController < ApplicationController
+  before_action :set_user, only: [:show, :update]
 
   def update
     respond_to do |format|
@@ -11,6 +11,10 @@ class EmailPredsController < ApplicationController
         format.json {}
       end
     end
+  end
+
+  def show
+    @email_prefs = EmailPrefs.find_or_create_by(user: current_user)
   end
 
   def create

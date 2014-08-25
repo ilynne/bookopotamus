@@ -1,0 +1,19 @@
+%h1 Email Preferences
+
+%p You can override the per book notification settings here.
+
+= @email_prefs.inspect
+
+= form_for @email_prefs do |f|
+  .field
+    = f.label :all_ratings
+    = f.check_box :all_ratings
+  .field
+    = f.label :all_reviews
+    = f.check_box :all_reviews
+  .field
+    = f.label :digest
+    = f.check_box :digest
+
+  .actions
+    = f.submit 'Update'
