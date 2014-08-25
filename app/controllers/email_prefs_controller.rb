@@ -1,15 +1,12 @@
 class EmailPrefsController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show]
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User privileges changed.' }
-        format.json { render :show, status: :ok }
-      else
-        format.html { redirect_to users_path, error: 'That update was declined.' }
-        format.json {}
-      end
+    @email_prefs = EmailPrefs.find(params[:id])
+    if @email_prefs.update(email_prefs_params)
+      redirect_to email_pref_path, notice: 'User email preferences changed.'
+    else
+      redirect_to email_pref_path, error: 'Something went wrong.'
     end
   end
 
@@ -17,36 +14,17 @@ class EmailPrefsController < ApplicationController
     @email_prefs = EmailPrefs.find_or_create_by(user: current_user)
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = 'Success!'
-      flash[:notice] = 'Admin was added.'
-      Notification.welcome_email(@user).deliver
-    else
-      flash[:error] = 'There was a problem creating the admin.'
-    end
-    # flash.keep
-    redirect_to root_path
-  end
-
   private
 
-  def check_email
-    if params[:user][:email].blank?
-      redirect_to root_path, notice: 'You must enter an email address.'
-    end
-  end
-    
   def set_user
     begin
-      @user = User.find(params[:id])
+      @user = current_user
     rescue
       redirect_to root_path
     end
   end
 
   def email_prefs_params
-    params[:user].permit(:user_id, :all_ratings, :all_reviews, :digest)
+    params[:email_prefs].permit(:user_id, :all_ratings, :all_reviews, :digest, :opt_out)
   end
 end

@@ -2,8 +2,6 @@
 
 %p You can override the per book notification settings here.
 
-= @email_prefs.inspect
-
 = form_for @email_prefs do |f|
   .field
     = f.label :all_ratings
@@ -14,6 +12,9 @@
   .field
     = f.label :digest
     = f.check_box :digest
+  .field
+    = f.label :opt_out
+    = f.check_box :opt_out
 
   .actions
     = f.submit 'Update'

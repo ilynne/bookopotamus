@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825085045) do
+ActiveRecord::Schema.define(version: 20140825092855) do
 
   create_table "authors", force: true do |t|
     t.string   "last_name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140825085045) do
     t.boolean  "digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "opt_out"
   end
 
   create_table "follows", force: true do |t|
