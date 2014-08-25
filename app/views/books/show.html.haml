@@ -18,7 +18,8 @@
     .span4
       %following 
         - if current_user && @book.followed_by_user?(current_user)
-          %p You are following this book.
+          %h5 You are following this book.
+          = render 'follows/form', :follow => @follow
 
 %table.table.table-nonfluid
   %tr

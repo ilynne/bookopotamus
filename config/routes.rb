@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :ratings, only: [:update, :new]
   end
+  resources :follows, only: [:update, :new]
   resources :reviews
   resources :authors
 

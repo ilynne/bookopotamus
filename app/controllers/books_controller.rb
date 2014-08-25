@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @reviews = @book.reviews.paginate(:page => params[:page])
+    @follow = @book.follows.where(user_id: current_user).first if current_user
   end
 
   # GET /books/new

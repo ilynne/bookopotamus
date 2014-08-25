@@ -1,0 +1,11 @@
+= form_for follow do |f|
+  %fieldset
+    .field
+      = f.label :ratings
+      = f.check_box :rating
+    .field
+      = f.label :reviews
+      = f.check_box :review
+    
+  .actions
+    = f.submit 'Update'
