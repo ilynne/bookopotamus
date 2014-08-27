@@ -4,29 +4,23 @@
 
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bookopotamus is my final project for a Ruby on Rails certification course. It is a Rails 4 app using Ruby 2.0.0-p353.
 
-Things you may want to cover:
+To get this app running:
 
-* Ruby version
+* Download
 
-* System dependencies
+* bundle install
 
-* Configuration
+* edit the appropriate config files
 
-* Database creation
+* rake db:migrate and rake db:seed
 
-* Database initialization
+* start up the server
 
-* How to run the test suite
+I highly recommend using Pow! http://pow.cx
 
-* Services (job queues, cache servers, search engines, etc.)
+In order to actually deliver the necessary emails, you will want to set up a cron job to run the rake tasks in admin.rake.
 
-* Deployment instructions
+This project had a list of 25 requirements. I documented them as milestones for GitHub issues. You can find them here: https://github.com/ilynne/bookopotamus/milestones. I completed 22 of 25. Number 16 is partially completed -- users can *ask* to receive a digest.
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
