@@ -20,9 +20,7 @@ class BooksController < ApplicationController
   # GET /books/1
   def show
     @book = Book.find(params[:id])
-    @reviews = @book.reviews.paginate(:page => params[:page])
-    # to order by email
-    # Review.joins(:user).order('users.email')
+    @reviews = @book.reviews.order('score desc').first(3)
     set_follow if current_user
   end
 

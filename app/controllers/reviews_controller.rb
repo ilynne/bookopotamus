@@ -2,7 +2,16 @@ class ReviewsController < ApplicationController
   before_action :validate_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @reviews = Review.all.paginate(:page => params[:page], :per_page => 10)
+    @reviews = params[:book_id].present? ? Review.where(book_id: params[:book_id]) : Review.all
+    # @reviews = Review.all
+    @reviews = @reviews.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
+  end
+
+  def show
+    @book = Book.find(params[:book_id])
+    @reviews = @book.reviews
+    # @reviews = Review.all
+    @reviews = @reviews.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
   end
 
   def create
@@ -33,6 +42,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def sort_column
+    Review.column_names.include?(params[:sort]) ? params[:sort] : 'score'
+  end
 
   def validate_user
     redirect_to books_url if current_user.restricted?

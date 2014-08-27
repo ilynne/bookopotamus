@@ -18,17 +18,19 @@ class RatingsController < ApplicationController
     end
   end
 
+  private
+
   def update_rating(rating, book)
     rating.score = params[:score]
     respond_to do |format|
       if rating.save
+        # update_review(rating, book)
         book.calculate_average_rating
         format.json { render json: book.average_rating, status: :created }
       end
     end
   end
 
-  private
 
   def validate_user
     redirect_to books_url if current_user.restricted?

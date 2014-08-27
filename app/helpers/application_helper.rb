@@ -21,10 +21,10 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column.titleize
-    css_class = column == sort_column ? "current #{sort_direction}" : nil
+    # css_class = column == sort_column ? "current #{sort_direction}" : nil
     direction = column == params[:sort] && params[:direction] == 'asc' ? 'desc' : 'asc'
     # arrow = direction == 'asc' ? '^' : 'v'
-    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+    link_to title, { :sort => column, :direction => direction }
   end
 
   def bootstrap_class_for(flash_type)

@@ -43,7 +43,7 @@
   %h4 Reviews
   %table.table.table-nonfluid
     %tr
-      %th Rating
+      %th= sortable 'score', 'Rating'
       %th Member
     - @reviews.each do |review|
       %tr
@@ -52,5 +52,5 @@
       %tr
         %td{:colspan => 2}
           = render 'reviews/show_or_edit', :review => review, :book => @book
-  = will_paginate @reviews
+  = link_to '... read more reviews', book_reviews_path(@book.id)
 

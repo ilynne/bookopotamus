@@ -34,39 +34,23 @@ book.save
   book.save
 end
 
-Rating.delete_all
-rating = Rating.new(score: 5, user: User.first, book: Book.first)
-rating.save
-rating = Rating.new(score: 5, user: User.first, book: Book.last)
-rating.save
-rating = Rating.new(score: 4, user: User.last, book: Book.first)
-rating.save
-rating = Rating.new(score: 3, user: User.last, book: Book.last)
-rating.save
-Book.all.each do |b|
-  User.first(15).each do |u|
-    ratings = (1..5).to_a
-    rating = Rating.create!(score: ratings.sample, user: u, book: b)
-  end
-  b.average_rating
-end
-
 Review.delete_all
-review = Review.new(body: 'This book is great.', user: User.first, book: Book.first)
-review.save
-review = Review.new(body: 'This book is also great.', user: User.first, book: Book.last)
-review.save
-review = Review.new(body: 'This book is terrible.', user: User.last, book: Book.first)
-review.save
-review = Review.new(body: 'This book is also terrible.', user: User.last, book: Book.last)
-review.save
-
 Book.last(15).each do |b|
   User.first(15).each do |u|
     review_prefix = ['I thought this book was', 'This book is']
     reviews = [:great, :average, :terrible, :funny]
     review = Review.create!(body: "#{review_prefix.sample} #{reviews.sample}.", user: u, book: b)
   end
+end
+
+Rating.delete_all
+Book.all.each do |b|
+  User.first(15).each do |u|
+    ratings = (1..5).to_a
+    rating = Rating.create(score: ratings.sample, user: u, book: b)
+    rating.save
+  end
+  b.average_rating
 end
 
 Follow.delete_all
