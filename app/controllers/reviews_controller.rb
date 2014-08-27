@@ -7,12 +7,12 @@ class ReviewsController < ApplicationController
     @reviews = @reviews.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
   end
 
-  def show
-    @book = Book.find(params[:book_id])
-    @reviews = @book.reviews
-    # @reviews = Review.all
-    @reviews = @reviews.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
-  end
+  # def show
+  #   @book = Book.find(params[:book_id])
+  #   @reviews = @book.reviews
+  #   # @reviews = Review.all
+  #   @reviews = @reviews.order(sort_column + ' ' + sort_direction).paginate(:page => params[:page])
+  # end
 
   def create
     @review = Review.find_or_create_by(book_id: params[:review][:book_id], user_id: params[:review][:user_id])

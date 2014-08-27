@@ -26,6 +26,12 @@ describe 'Reviews' do
       visit reviews_path
       expect(page.body).to include(review.body)
     end
+    it 'should show all the reviews for a book' do
+      review.save
+      rating.save
+      visit book_reviews_path(review.book.id)
+      expect(page.body).to include(review.body)
+    end
   end
 
 end
