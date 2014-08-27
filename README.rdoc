@@ -6,6 +6,8 @@
 
 Bookopotamus is my final project for a Ruby on Rails certification course. It is a Rails 4 app using Ruby 2.0.0-p353.
 
+Bookopotamus is a virtual library. Users can add books, but admins need to approve them. You can rate, review and follow books. It was an adventure!
+
 To get this app running:
 
 * Download
