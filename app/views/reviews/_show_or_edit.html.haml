@@ -2,6 +2,6 @@
   = form_for review do |f|
     = render 'reviews/review_fields', :f => f, :book => book
     .actions
-      = f.submit 'Update'
+      = f.submit 'Update', class: 'btn btn-primary'
 - else
   = review.body
