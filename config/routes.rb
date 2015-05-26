@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      resources :books
+    end
+  end
+
   post 'users/impersonate' => 'users#impersonate', as: :impersonate
   get 'users/stop_impersonating' => 'users#stop_impersonating', as: :stop_impersonating
   get 'users' => 'users#index'
