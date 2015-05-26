@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827092457) do
+ActiveRecord::Schema.define(version: 20150526150836) do
 
   create_table "authors", force: true do |t|
     t.string   "last_name"
@@ -88,8 +88,10 @@ ActiveRecord::Schema.define(version: 20140827092457) do
     t.datetime "last_rating_email"
     t.datetime "last_review_email"
     t.datetime "last_digest_email"
+    t.string   "api_key"
   end
 
+  add_index "users", ["api_key"], name: "index_users_on_api_key", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
