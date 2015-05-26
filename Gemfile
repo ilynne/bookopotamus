@@ -61,6 +61,8 @@ group :production do
   # gem 'rails_12factor'
 end
 
+gem 'kaminari'
+
 # to enable admins to log in as other users
 # gem 'pretender'
 
