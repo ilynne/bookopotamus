@@ -8,8 +8,7 @@ describe User do
       expect(user.api_key).to eq(nil)
     end
     it 'should generate an api_key' do
-      # puts user.generate_api_key
-      expect(user.generate_api_key).not_to eq(nil)
+      expect{user.update_api_key}.not_to change{user.api_key}
     end
   end
 end

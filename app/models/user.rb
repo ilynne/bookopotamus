@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def update_api_key
+    update_attribute(:api_key, generate_api_key)
+  end
+
 end
