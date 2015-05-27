@@ -55,7 +55,7 @@ describe UsersController do
       it "does not create a new Admin" do
         expect {
           post :create, {:user => invalid_attributes}
-        }.to_not change(User, :count).by(1)
+        }.to_not change(User, :count)
       end
     end
 
