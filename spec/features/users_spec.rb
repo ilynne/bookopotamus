@@ -13,10 +13,12 @@ describe 'Users' do
     describe 'with valid credentials' do
       it 'allows a user to register' do
         visit new_user_registration_path
-        fill_in 'Email', with: new_user.email
-        fill_in 'Password', with: new_user.password
-        fill_in 'Password confirmation', with: new_user.password
-        click_button 'Sign up'
+        within('div#new_user_form') do
+          fill_in 'Email', with: new_user.email
+          fill_in 'Password', with: new_user.password
+          fill_in 'Password confirmation', with: new_user.password
+          click_button 'Sign up'
+        end
         # expect(page.body).to include('You are signed in as')
         expect(page.body).to include(new_user.email)
       end
@@ -25,10 +27,12 @@ describe 'Users' do
     describe 'with invalid credentials' do
       it 'password and confirmation mismatch returns error' do
         visit new_user_registration_path
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: user.password
-        fill_in 'Password confirmation', with: 'hello'
-        click_button 'Sign up'
+        within('div#new_user_form') do
+          fill_in 'Email', with: user.email
+          fill_in 'Password', with: user.password
+          fill_in 'Password confirmation', with: 'hello'
+          click_button 'Sign up'
+        end
         expect(page.body).to include('Password confirmation doesn&#39;t match')
       end
     end
@@ -41,18 +45,22 @@ describe 'Users' do
       it 'does not allow a new registration with existing password' do
         @user.save
         visit new_user_registration_path
-        fill_in 'Email', with: @user.email
-        fill_in 'Password', with: @user.password
-        fill_in 'Password confirmation', with: @user.password
-        click_button 'Sign up'
+        within('div#new_user_form') do
+          fill_in 'Email', with: @user.email
+          fill_in 'Password', with: @user.password
+          fill_in 'Password confirmation', with: @user.password
+          click_button 'Sign up'
+        end
         expect(page.body).to include('Email has already been taken')
         expect(page.body).to include(@user.email)
       end
 
       it 'allows a user to reset the password' do
         visit new_user_password_path
-        fill_in 'Email', with: @user.email
-        click_button 'Send me reset password instructions'
+        within('div#forgot_password_form') do
+          fill_in 'Email', with: @user.email
+          click_button 'Send me reset password instructions'
+        end
         expect(page.body).to include('Sign in')
       end
     end
@@ -61,9 +69,11 @@ describe 'Users' do
       describe 'as an admin' do
         before(:each) do
           visit new_user_session_path
-          fill_in 'Email', with: admin.email
-          fill_in 'Password', with: admin.password
-          click_button 'Sign in'
+          within('div.sidebar-login') do
+            fill_in 'Email', with: admin.email
+            fill_in 'Password', with: admin.password
+            click_button 'Sign in'
+          end
         end
 
         it 'allows the admin to impersonate a user' do
@@ -129,9 +139,11 @@ describe 'Users' do
       end
       describe 'as a non admin' do
         before(:each) do
-          visit new_user_session_path
-          fill_in 'Email', with: user.email
-          fill_in 'Password', with: user.password
+          visit root_path
+          within('div.sidebar-login') do
+            fill_in 'Email', with: user.email
+            fill_in 'Password', with: user.password
+          end
           click_button 'Sign in'
         end
         it 'should not show a user the users' do

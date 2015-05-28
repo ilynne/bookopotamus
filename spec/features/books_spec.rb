@@ -24,9 +24,11 @@ describe 'Books' do
 
   describe 'as a signed in user' do
     before(:each) do
-      visit new_user_session_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+      visit root_path
+      within('div.sidebar-login') do
+        fill_in 'Email', with: user.email
+        fill_in 'Password', with: user.password
+      end
       click_button 'Sign in'
     end
 

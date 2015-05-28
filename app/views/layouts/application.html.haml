@@ -36,12 +36,15 @@
             %li= link_to 'Add a book', new_book_path if current_user
             %li= link_to 'Users', users_path if current_user.try(:admin?)
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to 'Placeholder', '#'
+            %li
+              = link_to "#{current_user.email}#{current_user_admin(current_user)}", email_pref_path(current_user) if current_user
+            %li= link_to 'Log In', new_user_session_path unless current_user
+            %li= link_to 'Logout', destroy_user_session_path, method: :delete if current_user
 
     .container-fluid
       .row
         .col-md-3
-          .well
+          .well.sidebar-login
             %h4= 'Log in'
             = render 'devise/shared/new' unless current_user
             - if current_user
