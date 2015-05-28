@@ -28,7 +28,8 @@ describe DeviseController do
     end
 
     it "routes to #destroy" do
-      delete("/users").should route_to("devise/registrations#destroy")
+      # delete("/users").should route_to("devise/registrations#destroy")
+      expect(:delete => "/users").to route_to('devise/registrations#destroy')
     end
 
   end

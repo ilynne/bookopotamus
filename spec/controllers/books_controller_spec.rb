@@ -28,7 +28,6 @@ describe BooksController do
   describe 'logged in as admin' do
     login_admin
     describe 'GET#index' do
-      # render_views
       it "assigns all books as @books" do
         get :index, {}
         assigns(:books).should eq([book])
@@ -39,7 +38,7 @@ describe BooksController do
       it 'redirects to the books list' do
         book.save
         delete :destroy, id: book.to_param
-        response.should redirect_to(books_url)
+        expect(response).to redirect_to(books_url)
       end
       describe 'as the book owner' do
         describe 'a book with a review' do
