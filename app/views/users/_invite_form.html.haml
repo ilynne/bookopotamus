@@ -1,13 +1,11 @@
 = form_for User.new, url: users_invite_path, :html => { id: 'invite' } do |f|
-  %fieldset
-    .nav-header Invite a member!
+  %h4= 'Invite a member!'
+  .form-group
+    = f.label :email
+    = f.email_field :email, id: 'invite_email', class: 'form-control'
+  - if current_user.admin?
     .field
-      = f.label :email
-      = f.email_field :email, id: 'invite_email'
-    - if current_user.admin?
-      .field
-        = f.label :admin
-        = f.check_box :admin, id: 'invite_admin'
-    
+      = f.label :admin
+      = f.check_box :admin, id: 'invite_admin'
   .actions
     = f.submit 'Invite', class: 'btn btn-success'

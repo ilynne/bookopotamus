@@ -1,18 +1,18 @@
 = form_for User.new, url: users_admin_path do |f|
   %fieldset
-    .nav-header Add user
-    .field
+    %h4 Add user
+    .form-group
       = f.label :email
-      = f.email_field :email   
+      = f.email_field :email, class: 'form-control'  
     .field
       = f.label :password
-      = f.password_field :password
+      = f.password_field :password, class: 'form-control'  
     .field
       = f.label :password_confirmation
-      = f.password_field :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
     .field
       = f.label :admin
-      = f.check_box :admin
+      = f.check_box :admin, class: 'form-control'
     
   .actions
     = f.submit 'Add', class: 'btn btn-primary'
